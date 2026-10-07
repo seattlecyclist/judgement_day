@@ -44,6 +44,13 @@ class MultiPrefTest < Minitest::Test
     end
   end
 
+  def test_agreement_against_one_group_counts_misses
+    item = M.build_items([row("x", %w[A-is-clearly-better A-is-clearly-better], %w[B-is-clearly-better B-is-clearly-better])]).first
+    summary = { "item" => item, "confidence" => 0.95, "pick" => "a" }
+    assert_equal 1.0, M.agreement_against([summary], "votes_normal")
+    assert_equal 0.0, M.agreement_against([summary], "votes_expert")
+  end
+
   def test_bars_use_the_test_slice_and_the_map_is_fitted_on_dev
     rows_in = (1..60).map { |n| row(n.to_s, %w[A-is-clearly-better A-is-clearly-better], %w[A-is-slightly-better Tie]) }
     items = M.build_items(rows_in)

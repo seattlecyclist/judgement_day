@@ -1,0 +1,307 @@
+{
+  "preregistration": "2026-10-07 MultiPref amendment",
+  "bars_version": "bars@v2",
+  "threshold": 0.9,
+  "items_scored": 2000,
+  "dev_items": 412,
+  "test_items": 1588,
+  "test_items_with_majority": 1285,
+  "all": {
+    "threshold": 0.9,
+    "items": 1285,
+    "decided": 470,
+    "coverage": 0.3657587548638132,
+    "agreement": 0.9
+  },
+  "agreement_95ci": [
+    0.87,
+    0.924
+  ],
+  "calibration": {
+    "bins": [
+      {
+        "bin": "0.0-0.1",
+        "items": 2,
+        "stated": 0.0,
+        "observed": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bin": "0.2-0.3",
+        "items": 203,
+        "stated": 0.26,
+        "observed": 0.35,
+        "gap": 0.09
+      },
+      {
+        "bin": "0.4-0.5",
+        "items": 108,
+        "stated": 0.419,
+        "observed": 0.454,
+        "gap": 0.034
+      },
+      {
+        "bin": "0.5-0.6",
+        "items": 265,
+        "stated": 0.56,
+        "observed": 0.521,
+        "gap": 0.039
+      },
+      {
+        "bin": "0.6-0.7",
+        "items": 366,
+        "stated": 0.671,
+        "observed": 0.721,
+        "gap": 0.051
+      },
+      {
+        "bin": "0.8-0.9",
+        "items": 140,
+        "stated": 0.844,
+        "observed": 0.886,
+        "gap": 0.042
+      },
+      {
+        "bin": "0.9-1.0",
+        "items": 201,
+        "stated": 0.983,
+        "observed": 0.945,
+        "gap": 0.038
+      }
+    ],
+    "max_gap": 0.09,
+    "mean_gap": 0.05
+  },
+  "raw_calibration": {
+    "bins": [
+      {
+        "bin": "0.3-0.4",
+        "items": 19,
+        "stated": 0.381,
+        "observed": 0.105,
+        "gap": 0.276
+      },
+      {
+        "bin": "0.4-0.5",
+        "items": 118,
+        "stated": 0.455,
+        "observed": 0.314,
+        "gap": 0.142
+      },
+      {
+        "bin": "0.5-0.6",
+        "items": 170,
+        "stated": 0.549,
+        "observed": 0.453,
+        "gap": 0.097
+      },
+      {
+        "bin": "0.6-0.7",
+        "items": 150,
+        "stated": 0.651,
+        "observed": 0.473,
+        "gap": 0.177
+      },
+      {
+        "bin": "0.7-0.8",
+        "items": 166,
+        "stated": 0.752,
+        "observed": 0.602,
+        "gap": 0.149
+      },
+      {
+        "bin": "0.8-0.9",
+        "items": 190,
+        "stated": 0.846,
+        "observed": 0.653,
+        "gap": 0.193
+      },
+      {
+        "bin": "0.9-1.0",
+        "items": 472,
+        "stated": 0.966,
+        "observed": 0.9,
+        "gap": 0.066
+      }
+    ],
+    "max_gap": 0.276,
+    "mean_gap": 0.123
+  },
+  "calibration_map": {
+    "method": "isotonic",
+    "steps": [
+      [
+        0.3383,
+        0.0
+      ],
+      [
+        0.3517,
+        0.26
+      ],
+      [
+        0.54,
+        0.4194
+      ],
+      [
+        0.605,
+        0.5
+      ],
+      [
+        0.6217,
+        0.5667
+      ],
+      [
+        0.775,
+        0.6452
+      ],
+      [
+        0.8333,
+        0.6667
+      ],
+      [
+        0.8483,
+        0.6852
+      ],
+      [
+        0.9467,
+        0.8438
+      ],
+      [
+        0.9833,
+        0.9444
+      ],
+      [
+        0.99,
+        1.0
+      ]
+    ]
+  },
+  "order_consistency": 0.820528967254408,
+  "repeat_flip_rate": 0.05793450881612091,
+  "ties": 294,
+  "ties_caught": 45,
+  "by_category": {
+    "Brainstorm": {
+      "items": 84,
+      "decided": 33,
+      "coverage": 0.39285714285714285,
+      "agreement": 0.9090909090909091
+    },
+    "Chat": {
+      "items": 41,
+      "decided": 13,
+      "coverage": 0.3170731707317073,
+      "agreement": 0.6153846153846154
+    },
+    "Classify": {
+      "items": 3,
+      "decided": 1,
+      "coverage": 0.3333333333333333,
+      "agreement": 1.0
+    },
+    "Closed QA": {
+      "items": 19,
+      "decided": 5,
+      "coverage": 0.2631578947368421,
+      "agreement": 0.6
+    },
+    "Coding": {
+      "items": 123,
+      "decided": 53,
+      "coverage": 0.43089430894308944,
+      "agreement": 0.8301886792452831
+    },
+    "Extract": {
+      "items": 15,
+      "decided": 6,
+      "coverage": 0.4,
+      "agreement": 0.8333333333333334
+    },
+    "Generation": {
+      "items": 190,
+      "decided": 58,
+      "coverage": 0.30526315789473685,
+      "agreement": 0.9655172413793104
+    },
+    "Open QA": {
+      "items": 758,
+      "decided": 290,
+      "coverage": 0.38258575197889183,
+      "agreement": 0.9137931034482759
+    },
+    "Rewrite": {
+      "items": 26,
+      "decided": 4,
+      "coverage": 0.15384615384615385,
+      "agreement": 1.0
+    },
+    "Summarize": {
+      "items": 26,
+      "decided": 7,
+      "coverage": 0.2692307692307692,
+      "agreement": 1.0
+    }
+  },
+  "by_source": {
+    "allenai/WildChat": {
+      "items": 222,
+      "decided": 57,
+      "coverage": 0.25675675675675674,
+      "agreement": 0.8421052631578947
+    },
+    "anthropic/helpful-base": {
+      "items": 473,
+      "decided": 207,
+      "coverage": 0.4376321353065539,
+      "agreement": 0.9371980676328503
+    },
+    "lmsys/chatbot_arena_conversations": {
+      "items": 295,
+      "decided": 97,
+      "coverage": 0.3288135593220339,
+      "agreement": 0.8762886597938144
+    },
+    "lmsys/sharegpt-vicuna": {
+      "items": 295,
+      "decided": 109,
+      "coverage": 0.3694915254237288,
+      "agreement": 0.8807339449541285
+    }
+  },
+  "three_of_four": {
+    "items": 951,
+    "decided": 407,
+    "coverage": 0.42797055730809674,
+    "agreement": 0.9312039312039312
+  },
+  "agreement_vs_experts": 0.9142857142857143,
+  "agreement_vs_workers": 0.9127906976744186,
+  "human_votes_for_second": 0.663,
+  "go": {
+    "agreement": {
+      "value": 0.9,
+      "bar": 0.9,
+      "pass": true
+    },
+    "coverage": {
+      "value": 0.3657587548638132,
+      "bar": 0.5,
+      "pass": false
+    },
+    "calibration_gap": {
+      "value": 0.05,
+      "bar": 0.1,
+      "pass": true
+    },
+    "order_consistency": {
+      "value": 0.820528967254408,
+      "bar": 0.9,
+      "pass": false
+    },
+    "repeat_flip_rate": {
+      "value": 0.05793450881612091,
+      "bar": 0.05,
+      "pass": false
+    }
+  }
+}

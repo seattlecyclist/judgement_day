@@ -111,10 +111,10 @@ module JudgementDay
     end
 
     def agreement_against(summaries, votes_key)
-      decided = summaries.select { |s| s["confidence"] >= THRESHOLD }.filter_map do |s|
+      decided = summaries.select { |s| s["confidence"] >= THRESHOLD }.map do |s|
         maj = Metrics.majority(s["item"][votes_key])
         maj && s["pick"] == maj
-      end
+      end.compact
       decided.empty? ? nil : decided.count(true).fdiv(decided.size)
     end
 
