@@ -1,0 +1,859 @@
+{
+  "items_scored": 500,
+  "items_with_majority": 384,
+  "threshold": 0.97,
+  "threshold_calibrated": true,
+  "sweep": [
+    {
+      "threshold": 0.5,
+      "items": 384,
+      "decided": 377,
+      "coverage": 0.9817708333333334,
+      "agreement": 0.7453580901856764
+    },
+    {
+      "threshold": 0.51,
+      "items": 384,
+      "decided": 373,
+      "coverage": 0.9713541666666666,
+      "agreement": 0.7479892761394102
+    },
+    {
+      "threshold": 0.52,
+      "items": 384,
+      "decided": 369,
+      "coverage": 0.9609375,
+      "agreement": 0.7533875338753387
+    },
+    {
+      "threshold": 0.53,
+      "items": 384,
+      "decided": 364,
+      "coverage": 0.9479166666666666,
+      "agreement": 0.7637362637362637
+    },
+    {
+      "threshold": 0.54,
+      "items": 384,
+      "decided": 358,
+      "coverage": 0.9322916666666666,
+      "agreement": 0.7737430167597765
+    },
+    {
+      "threshold": 0.55,
+      "items": 384,
+      "decided": 354,
+      "coverage": 0.921875,
+      "agreement": 0.7796610169491526
+    },
+    {
+      "threshold": 0.56,
+      "items": 384,
+      "decided": 352,
+      "coverage": 0.9166666666666666,
+      "agreement": 0.7784090909090909
+    },
+    {
+      "threshold": 0.57,
+      "items": 384,
+      "decided": 346,
+      "coverage": 0.9010416666666666,
+      "agreement": 0.7861271676300579
+    },
+    {
+      "threshold": 0.58,
+      "items": 384,
+      "decided": 342,
+      "coverage": 0.890625,
+      "agreement": 0.7923976608187134
+    },
+    {
+      "threshold": 0.59,
+      "items": 384,
+      "decided": 339,
+      "coverage": 0.8828125,
+      "agreement": 0.799410029498525
+    },
+    {
+      "threshold": 0.6,
+      "items": 384,
+      "decided": 337,
+      "coverage": 0.8776041666666666,
+      "agreement": 0.8041543026706232
+    },
+    {
+      "threshold": 0.61,
+      "items": 384,
+      "decided": 331,
+      "coverage": 0.8619791666666666,
+      "agreement": 0.8036253776435045
+    },
+    {
+      "threshold": 0.62,
+      "items": 384,
+      "decided": 328,
+      "coverage": 0.8541666666666666,
+      "agreement": 0.8079268292682927
+    },
+    {
+      "threshold": 0.63,
+      "items": 384,
+      "decided": 323,
+      "coverage": 0.8411458333333334,
+      "agreement": 0.8111455108359134
+    },
+    {
+      "threshold": 0.64,
+      "items": 384,
+      "decided": 316,
+      "coverage": 0.8229166666666666,
+      "agreement": 0.8227848101265823
+    },
+    {
+      "threshold": 0.65,
+      "items": 384,
+      "decided": 315,
+      "coverage": 0.8203125,
+      "agreement": 0.8253968253968254
+    },
+    {
+      "threshold": 0.66,
+      "items": 384,
+      "decided": 315,
+      "coverage": 0.8203125,
+      "agreement": 0.8253968253968254
+    },
+    {
+      "threshold": 0.67,
+      "items": 384,
+      "decided": 313,
+      "coverage": 0.8151041666666666,
+      "agreement": 0.8274760383386581
+    },
+    {
+      "threshold": 0.68,
+      "items": 384,
+      "decided": 313,
+      "coverage": 0.8151041666666666,
+      "agreement": 0.8274760383386581
+    },
+    {
+      "threshold": 0.69,
+      "items": 384,
+      "decided": 308,
+      "coverage": 0.8020833333333334,
+      "agreement": 0.827922077922078
+    },
+    {
+      "threshold": 0.7,
+      "items": 384,
+      "decided": 305,
+      "coverage": 0.7942708333333334,
+      "agreement": 0.8262295081967214
+    },
+    {
+      "threshold": 0.71,
+      "items": 384,
+      "decided": 305,
+      "coverage": 0.7942708333333334,
+      "agreement": 0.8262295081967214
+    },
+    {
+      "threshold": 0.72,
+      "items": 384,
+      "decided": 303,
+      "coverage": 0.7890625,
+      "agreement": 0.8316831683168316
+    },
+    {
+      "threshold": 0.73,
+      "items": 384,
+      "decided": 301,
+      "coverage": 0.7838541666666666,
+      "agreement": 0.8372093023255814
+    },
+    {
+      "threshold": 0.74,
+      "items": 384,
+      "decided": 298,
+      "coverage": 0.7760416666666666,
+      "agreement": 0.8422818791946308
+    },
+    {
+      "threshold": 0.75,
+      "items": 384,
+      "decided": 293,
+      "coverage": 0.7630208333333334,
+      "agreement": 0.8464163822525598
+    },
+    {
+      "threshold": 0.76,
+      "items": 384,
+      "decided": 289,
+      "coverage": 0.7526041666666666,
+      "agreement": 0.8442906574394463
+    },
+    {
+      "threshold": 0.77,
+      "items": 384,
+      "decided": 283,
+      "coverage": 0.7369791666666666,
+      "agreement": 0.8445229681978799
+    },
+    {
+      "threshold": 0.78,
+      "items": 384,
+      "decided": 278,
+      "coverage": 0.7239583333333334,
+      "agreement": 0.8453237410071942
+    },
+    {
+      "threshold": 0.79,
+      "items": 384,
+      "decided": 276,
+      "coverage": 0.71875,
+      "agreement": 0.8478260869565217
+    },
+    {
+      "threshold": 0.8,
+      "items": 384,
+      "decided": 274,
+      "coverage": 0.7135416666666666,
+      "agreement": 0.8503649635036497
+    },
+    {
+      "threshold": 0.81,
+      "items": 384,
+      "decided": 274,
+      "coverage": 0.7135416666666666,
+      "agreement": 0.8503649635036497
+    },
+    {
+      "threshold": 0.82,
+      "items": 384,
+      "decided": 270,
+      "coverage": 0.703125,
+      "agreement": 0.8518518518518519
+    },
+    {
+      "threshold": 0.83,
+      "items": 384,
+      "decided": 269,
+      "coverage": 0.7005208333333334,
+      "agreement": 0.8513011152416357
+    },
+    {
+      "threshold": 0.84,
+      "items": 384,
+      "decided": 267,
+      "coverage": 0.6953125,
+      "agreement": 0.850187265917603
+    },
+    {
+      "threshold": 0.85,
+      "items": 384,
+      "decided": 262,
+      "coverage": 0.6822916666666666,
+      "agreement": 0.851145038167939
+    },
+    {
+      "threshold": 0.86,
+      "items": 384,
+      "decided": 255,
+      "coverage": 0.6640625,
+      "agreement": 0.8470588235294118
+    },
+    {
+      "threshold": 0.87,
+      "items": 384,
+      "decided": 251,
+      "coverage": 0.6536458333333334,
+      "agreement": 0.848605577689243
+    },
+    {
+      "threshold": 0.88,
+      "items": 384,
+      "decided": 240,
+      "coverage": 0.625,
+      "agreement": 0.8625
+    },
+    {
+      "threshold": 0.89,
+      "items": 384,
+      "decided": 233,
+      "coverage": 0.6067708333333334,
+      "agreement": 0.8669527896995708
+    },
+    {
+      "threshold": 0.9,
+      "items": 384,
+      "decided": 228,
+      "coverage": 0.59375,
+      "agreement": 0.868421052631579
+    },
+    {
+      "threshold": 0.91,
+      "items": 384,
+      "decided": 219,
+      "coverage": 0.5703125,
+      "agreement": 0.867579908675799
+    },
+    {
+      "threshold": 0.92,
+      "items": 384,
+      "decided": 213,
+      "coverage": 0.5546875,
+      "agreement": 0.8732394366197183
+    },
+    {
+      "threshold": 0.93,
+      "items": 384,
+      "decided": 208,
+      "coverage": 0.5416666666666666,
+      "agreement": 0.875
+    },
+    {
+      "threshold": 0.94,
+      "items": 384,
+      "decided": 199,
+      "coverage": 0.5182291666666666,
+      "agreement": 0.8793969849246231
+    },
+    {
+      "threshold": 0.95,
+      "items": 384,
+      "decided": 194,
+      "coverage": 0.5052083333333334,
+      "agreement": 0.8762886597938144
+    },
+    {
+      "threshold": 0.96,
+      "items": 384,
+      "decided": 183,
+      "coverage": 0.4765625,
+      "agreement": 0.8797814207650273
+    },
+    {
+      "threshold": 0.97,
+      "items": 384,
+      "decided": 161,
+      "coverage": 0.4192708333333333,
+      "agreement": 0.8881987577639752
+    },
+    {
+      "threshold": 0.98,
+      "items": 384,
+      "decided": 140,
+      "coverage": 0.3645833333333333,
+      "agreement": 0.9
+    },
+    {
+      "threshold": 0.99,
+      "items": 384,
+      "decided": 100,
+      "coverage": 0.2604166666666667,
+      "agreement": 0.92
+    }
+  ],
+  "dev_sweep": [
+    {
+      "threshold": 0.5,
+      "items": 308,
+      "decided": 302,
+      "coverage": 0.9805194805194806,
+      "agreement": 0.7615894039735099
+    },
+    {
+      "threshold": 0.51,
+      "items": 308,
+      "decided": 298,
+      "coverage": 0.9675324675324676,
+      "agreement": 0.7651006711409396
+    },
+    {
+      "threshold": 0.52,
+      "items": 308,
+      "decided": 296,
+      "coverage": 0.961038961038961,
+      "agreement": 0.7702702702702703
+    },
+    {
+      "threshold": 0.53,
+      "items": 308,
+      "decided": 293,
+      "coverage": 0.9512987012987013,
+      "agreement": 0.7781569965870307
+    },
+    {
+      "threshold": 0.54,
+      "items": 308,
+      "decided": 290,
+      "coverage": 0.9415584415584416,
+      "agreement": 0.7827586206896552
+    },
+    {
+      "threshold": 0.55,
+      "items": 308,
+      "decided": 287,
+      "coverage": 0.9318181818181818,
+      "agreement": 0.7874564459930313
+    },
+    {
+      "threshold": 0.56,
+      "items": 308,
+      "decided": 285,
+      "coverage": 0.9253246753246753,
+      "agreement": 0.7859649122807018
+    },
+    {
+      "threshold": 0.57,
+      "items": 308,
+      "decided": 279,
+      "coverage": 0.9058441558441559,
+      "agreement": 0.7956989247311828
+    },
+    {
+      "threshold": 0.58,
+      "items": 308,
+      "decided": 277,
+      "coverage": 0.8993506493506493,
+      "agreement": 0.8014440433212996
+    },
+    {
+      "threshold": 0.59,
+      "items": 308,
+      "decided": 274,
+      "coverage": 0.8896103896103896,
+      "agreement": 0.8102189781021898
+    },
+    {
+      "threshold": 0.6,
+      "items": 308,
+      "decided": 272,
+      "coverage": 0.8831168831168831,
+      "agreement": 0.8161764705882353
+    },
+    {
+      "threshold": 0.61,
+      "items": 308,
+      "decided": 266,
+      "coverage": 0.8636363636363636,
+      "agreement": 0.8157894736842105
+    },
+    {
+      "threshold": 0.62,
+      "items": 308,
+      "decided": 264,
+      "coverage": 0.8571428571428571,
+      "agreement": 0.821969696969697
+    },
+    {
+      "threshold": 0.63,
+      "items": 308,
+      "decided": 260,
+      "coverage": 0.8441558441558441,
+      "agreement": 0.8269230769230769
+    },
+    {
+      "threshold": 0.64,
+      "items": 308,
+      "decided": 256,
+      "coverage": 0.8311688311688312,
+      "agreement": 0.8359375
+    },
+    {
+      "threshold": 0.65,
+      "items": 308,
+      "decided": 255,
+      "coverage": 0.827922077922078,
+      "agreement": 0.8392156862745098
+    },
+    {
+      "threshold": 0.66,
+      "items": 308,
+      "decided": 255,
+      "coverage": 0.827922077922078,
+      "agreement": 0.8392156862745098
+    },
+    {
+      "threshold": 0.67,
+      "items": 308,
+      "decided": 253,
+      "coverage": 0.8214285714285714,
+      "agreement": 0.841897233201581
+    },
+    {
+      "threshold": 0.68,
+      "items": 308,
+      "decided": 253,
+      "coverage": 0.8214285714285714,
+      "agreement": 0.841897233201581
+    },
+    {
+      "threshold": 0.69,
+      "items": 308,
+      "decided": 248,
+      "coverage": 0.8051948051948052,
+      "agreement": 0.842741935483871
+    },
+    {
+      "threshold": 0.7,
+      "items": 308,
+      "decided": 245,
+      "coverage": 0.7954545454545454,
+      "agreement": 0.8408163265306122
+    },
+    {
+      "threshold": 0.71,
+      "items": 308,
+      "decided": 245,
+      "coverage": 0.7954545454545454,
+      "agreement": 0.8408163265306122
+    },
+    {
+      "threshold": 0.72,
+      "items": 308,
+      "decided": 243,
+      "coverage": 0.788961038961039,
+      "agreement": 0.8477366255144033
+    },
+    {
+      "threshold": 0.73,
+      "items": 308,
+      "decided": 242,
+      "coverage": 0.7857142857142857,
+      "agreement": 0.8512396694214877
+    },
+    {
+      "threshold": 0.74,
+      "items": 308,
+      "decided": 240,
+      "coverage": 0.7792207792207793,
+      "agreement": 0.8541666666666666
+    },
+    {
+      "threshold": 0.75,
+      "items": 308,
+      "decided": 236,
+      "coverage": 0.7662337662337663,
+      "agreement": 0.8601694915254238
+    },
+    {
+      "threshold": 0.76,
+      "items": 308,
+      "decided": 233,
+      "coverage": 0.7564935064935064,
+      "agreement": 0.8583690987124464
+    },
+    {
+      "threshold": 0.77,
+      "items": 308,
+      "decided": 230,
+      "coverage": 0.7467532467532467,
+      "agreement": 0.8565217391304348
+    },
+    {
+      "threshold": 0.78,
+      "items": 308,
+      "decided": 225,
+      "coverage": 0.7305194805194806,
+      "agreement": 0.8577777777777778
+    },
+    {
+      "threshold": 0.79,
+      "items": 308,
+      "decided": 224,
+      "coverage": 0.7272727272727273,
+      "agreement": 0.8571428571428571
+    },
+    {
+      "threshold": 0.8,
+      "items": 308,
+      "decided": 224,
+      "coverage": 0.7272727272727273,
+      "agreement": 0.8571428571428571
+    },
+    {
+      "threshold": 0.81,
+      "items": 308,
+      "decided": 224,
+      "coverage": 0.7272727272727273,
+      "agreement": 0.8571428571428571
+    },
+    {
+      "threshold": 0.82,
+      "items": 308,
+      "decided": 220,
+      "coverage": 0.7142857142857143,
+      "agreement": 0.8590909090909091
+    },
+    {
+      "threshold": 0.83,
+      "items": 308,
+      "decided": 220,
+      "coverage": 0.7142857142857143,
+      "agreement": 0.8590909090909091
+    },
+    {
+      "threshold": 0.84,
+      "items": 308,
+      "decided": 218,
+      "coverage": 0.7077922077922078,
+      "agreement": 0.8577981651376146
+    },
+    {
+      "threshold": 0.85,
+      "items": 308,
+      "decided": 214,
+      "coverage": 0.6948051948051948,
+      "agreement": 0.8598130841121495
+    },
+    {
+      "threshold": 0.86,
+      "items": 308,
+      "decided": 208,
+      "coverage": 0.6753246753246753,
+      "agreement": 0.8557692307692307
+    },
+    {
+      "threshold": 0.87,
+      "items": 308,
+      "decided": 204,
+      "coverage": 0.6623376623376623,
+      "agreement": 0.8578431372549019
+    },
+    {
+      "threshold": 0.88,
+      "items": 308,
+      "decided": 194,
+      "coverage": 0.6298701298701299,
+      "agreement": 0.8711340206185567
+    },
+    {
+      "threshold": 0.89,
+      "items": 308,
+      "decided": 188,
+      "coverage": 0.6103896103896104,
+      "agreement": 0.8776595744680851
+    },
+    {
+      "threshold": 0.9,
+      "items": 308,
+      "decided": 184,
+      "coverage": 0.5974025974025974,
+      "agreement": 0.8804347826086957
+    },
+    {
+      "threshold": 0.91,
+      "items": 308,
+      "decided": 178,
+      "coverage": 0.577922077922078,
+      "agreement": 0.8764044943820225
+    },
+    {
+      "threshold": 0.92,
+      "items": 308,
+      "decided": 173,
+      "coverage": 0.5616883116883117,
+      "agreement": 0.884393063583815
+    },
+    {
+      "threshold": 0.93,
+      "items": 308,
+      "decided": 169,
+      "coverage": 0.5487012987012987,
+      "agreement": 0.8875739644970414
+    },
+    {
+      "threshold": 0.94,
+      "items": 308,
+      "decided": 162,
+      "coverage": 0.525974025974026,
+      "agreement": 0.8888888888888888
+    },
+    {
+      "threshold": 0.95,
+      "items": 308,
+      "decided": 158,
+      "coverage": 0.512987012987013,
+      "agreement": 0.8860759493670886
+    },
+    {
+      "threshold": 0.96,
+      "items": 308,
+      "decided": 151,
+      "coverage": 0.4902597402597403,
+      "agreement": 0.8940397350993378
+    },
+    {
+      "threshold": 0.97,
+      "items": 308,
+      "decided": 133,
+      "coverage": 0.4318181818181818,
+      "agreement": 0.9022556390977443
+    },
+    {
+      "threshold": 0.98,
+      "items": 308,
+      "decided": 116,
+      "coverage": 0.37662337662337664,
+      "agreement": 0.9137931034482759
+    },
+    {
+      "threshold": 0.99,
+      "items": 308,
+      "decided": 81,
+      "coverage": 0.262987012987013,
+      "agreement": 0.9382716049382716
+    }
+  ],
+  "all": {
+    "threshold": 0.97,
+    "items": 384,
+    "decided": 161,
+    "coverage": 0.4192708333333333,
+    "agreement": 0.8881987577639752
+  },
+  "holdout": {
+    "threshold": 0.97,
+    "items": 76,
+    "decided": 28,
+    "coverage": 0.3684210526315789,
+    "agreement": 0.8214285714285714
+  },
+  "calibration": {
+    "bins": [
+      {
+        "bin": "0.4-0.5",
+        "items": 7,
+        "stated": 0.487,
+        "observed": 0.429,
+        "gap": 0.059
+      },
+      {
+        "bin": "0.5-0.6",
+        "items": 40,
+        "stated": 0.546,
+        "observed": 0.25,
+        "gap": 0.296
+      },
+      {
+        "bin": "0.6-0.7",
+        "items": 32,
+        "stated": 0.64,
+        "observed": 0.594,
+        "gap": 0.047
+      },
+      {
+        "bin": "0.7-0.8",
+        "items": 31,
+        "stated": 0.755,
+        "observed": 0.613,
+        "gap": 0.142
+      },
+      {
+        "bin": "0.8-0.9",
+        "items": 46,
+        "stated": 0.863,
+        "observed": 0.761,
+        "gap": 0.102
+      },
+      {
+        "bin": "0.9-1.0",
+        "items": 228,
+        "stated": 0.977,
+        "observed": 0.868,
+        "gap": 0.109
+      }
+    ],
+    "max_gap": 0.296
+  },
+  "order_consistency": 0.916,
+  "repeat_flip_rate": 0.034,
+  "by_category": {
+    "coding": {
+      "items": 42,
+      "decided": 20,
+      "coverage": 0.47619047619047616,
+      "agreement": 0.85
+    },
+    "extraction": {
+      "items": 49,
+      "decided": 32,
+      "coverage": 0.6530612244897959,
+      "agreement": 0.8125
+    },
+    "humanities": {
+      "items": 45,
+      "decided": 33,
+      "coverage": 0.7333333333333333,
+      "agreement": 1.0
+    },
+    "math": {
+      "items": 58,
+      "decided": 15,
+      "coverage": 0.25862068965517243,
+      "agreement": 0.9333333333333333
+    },
+    "reasoning": {
+      "items": 50,
+      "decided": 12,
+      "coverage": 0.24,
+      "agreement": 0.75
+    },
+    "roleplay": {
+      "items": 61,
+      "decided": 19,
+      "coverage": 0.3114754098360656,
+      "agreement": 0.7368421052631579
+    },
+    "stem": {
+      "items": 44,
+      "decided": 19,
+      "coverage": 0.4318181818181818,
+      "agreement": 1.0
+    },
+    "writing": {
+      "items": 35,
+      "decided": 11,
+      "coverage": 0.3142857142857143,
+      "agreement": 1.0
+    }
+  },
+  "confident_disagreements": 18,
+  "go": {
+    "agreement": {
+      "value": 0.8214285714285714,
+      "bar": 0.9,
+      "pass": false
+    },
+    "coverage": {
+      "value": 0.3684210526315789,
+      "bar": 0.5,
+      "pass": false
+    },
+    "calibration_gap": {
+      "value": 0.296,
+      "bar": 0.1,
+      "pass": false
+    },
+    "order_consistency": {
+      "value": 0.916,
+      "bar": 0.9,
+      "pass": true
+    },
+    "repeat_flip_rate": {
+      "value": 0.034,
+      "bar": 0.05,
+      "pass": true
+    }
+  },
+  "run": "full",
+  "generated_at": "2026-10-07T20:19:57Z",
+  "spend": {
+    "judge": {
+      "calls": 2900,
+      "cost_usd": 0.1678
+    }
+  }
+}
