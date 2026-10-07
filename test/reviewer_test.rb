@@ -68,4 +68,24 @@ class ReviewerTest < Minitest::Test
     assert_equal 2, File.readlines(@path).size
     assert_raises(JudgementDay::Error) { R.add_spotcheck(review_id: review["review_id"], verdict: "override", note: "x") }
   end
+
+  def test_second_reviewer_gets_its_own_records_and_no_spotchecks
+    claude = FakeClaude.new(%({"label":"humans_wrong","reason":"Judge was right."}))
+    R.review(run: "t", summaries: [summary], threshold: 0.8, client: claude, budget: budget, log: StringIO.new)
+    R.review(run: "t", summaries: [summary], threshold: 0.8, client: claude, budget: budget, log: StringIO.new,
+             model: "claude-fable-5-1", effort: "medium")
+    assert_equal 2, claude.requests.size
+    assert_equal :"claude-fable-5-1", claude.requests.last[:model]
+    assert_equal({ effort: :medium }, claude.requests.last[:output_config])
+    fable = R.reviews.find { |r| r.dig("reviewer", "model") == "claude-fable-5-1" }
+    assert_equal JudgementDay::Dataset::VERSION, fable["data_version"]
+    refute_equal R.reviews.first["review_id"], fable["review_id"]
+    assert_equal 1, R.pending_spotchecks.size
+  end
+
+  def test_reviews_of_older_items_are_not_pending
+    JudgementDay.append_jsonl(@path, { "record_type" => "review", "review_id" => "old", "label" => "judge_wrong",
+                                       "reviewer" => { "model" => R::MODEL } })
+    assert_empty R.pending_spotchecks
+  end
 end

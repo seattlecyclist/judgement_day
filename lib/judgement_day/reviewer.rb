@@ -4,6 +4,9 @@ module JudgementDay
   # append-only file so the history can be reviewed later.
   module Reviewer
     MODEL = "claude-opus-5-5".freeze
+    EFFORT = "high".freeze
+    # Budget price kind for each reviewer model.
+    PRICE_KINDS = { "claude-opus-5-5" => :reviewer, "claude-fable-5-1" => :reviewer_fable }.freeze
     PROMPT_VERSION = "disagreement-review@v1".freeze
     MAX_TOKENS = 4000
     LABELS = %w[judge_wrong humans_wrong question_unclear].freeze
@@ -33,8 +36,14 @@ module JudgementDay
       JudgementDay.read_jsonl(path)
     end
 
-    def review_id(item_id)
-      Digest::SHA256.hexdigest("#{PROMPT_VERSION}:#{item_id}")[0, 12]
+    # One id per prompt, item text version, item and (for a second reviewer) model.
+    def review_id(item_id, model: MODEL, data_version: Dataset::VERSION)
+      key = [PROMPT_VERSION, data_version, model == MODEL ? nil : model, item_id].compact.join(":")
+      Digest::SHA256.hexdigest(key)[0, 12]
+    end
+
+    def data_version(record)
+      record["data_version"] || "v1"
     end
 
     def name_for(label)
@@ -81,25 +90,27 @@ module JudgementDay
     end
 
     # Reviews confident disagreements not yet reviewed under this prompt.
-    def review(run:, summaries:, threshold:, client:, budget:, limit: nil, log: $stdout)
+    def review(run:, summaries:, threshold:, client:, budget:, limit: nil, model: MODEL, effort: EFFORT, log: $stdout)
+      kind = PRICE_KINDS.fetch(model) { raise Error, "No price for reviewer model #{model}" }
       done = records.select { |r| r["record_type"] == "review" }.map { |r| r["review_id"] }.to_set
       todo = summaries.select { |s| s["majority"] && s["confidence"] >= threshold && !s["agrees"] }
-                      .reject { |s| done.include?(review_id(s["item"]["id"])) }
+                      .reject { |s| done.include?(review_id(s["item"]["id"], model: model)) }
       todo = todo.first(limit) if limit
       todo.each do |s|
         msg = user_message(s)
-        budget.check!(:reviewer, input_chars: SYSTEM.bytesize + msg.bytesize, max_output_tokens: MAX_TOKENS)
+        budget.check!(kind, input_chars: SYSTEM.bytesize + msg.bytesize, max_output_tokens: MAX_TOKENS)
         response = client.messages.create(
-          model: MODEL.to_sym, max_tokens: MAX_TOKENS,
-          output_config: { effort: :high },
+          model: model.to_sym, max_tokens: MAX_TOKENS,
+          output_config: { effort: effort.to_sym },
           system_: SYSTEM, messages: [{ role: "user", content: msg }]
         )
-        budget.record(:reviewer, input_tokens: response.usage.input_tokens, output_tokens: response.usage.output_tokens)
+        budget.record(kind, input_tokens: response.usage.input_tokens, output_tokens: response.usage.output_tokens)
         text = response.content.select { |b| b.type == :text }.map(&:text).join
         label, reason = response.stop_reason == :refusal ? [nil, "reviewer declined"] : parse(text)
         item = s["item"]
         JudgementDay.append_jsonl(path, {
-          "record_type" => "review", "review_id" => review_id(item["id"]), "run" => run,
+          "record_type" => "review", "review_id" => review_id(item["id"], model: model), "run" => run,
+          "data_version" => Dataset::VERSION,
           "item_id" => item["id"], "question_id" => item["question_id"], "turn" => item["turn"],
           "category" => item["category"], "model_a" => item["model_a"], "model_b" => item["model_b"],
           "user_prompt" => last_user_turn(item["conversation_a"]),
@@ -108,7 +119,7 @@ module JudgementDay
           "human_votes" => item["votes"], "human_majority" => s["majority"],
           "judge" => { "judge_version" => JUDGE_VERSION, "pick" => s["pick"],
                        "p" => s["p"].transform_values { |v| v.round(3) } },
-          "reviewer" => { "model" => MODEL, "prompt_version" => PROMPT_VERSION, "effort" => "high" },
+          "reviewer" => { "model" => model, "prompt_version" => PROMPT_VERSION, "effort" => effort },
           "label" => label, "reason" => reason, "created_at" => Time.now.utc.iso8601
         })
         log.puts "#{item['id']}: #{label || 'needs a look'}"
@@ -126,11 +137,11 @@ module JudgementDay
       records.select { |r| r["record_type"] == "spotcheck" }
     end
 
-    # Mike's spot-check sample: a stable 20 of the reviews, plus any review
-    # Claude couldn't label. Lists the ones still waiting for a check.
+    # Mike's spot-check sample: a stable 20 of the default model's reviews on
+    # current items, plus any it couldn't label. Lists the ones still waiting.
     def pending_spotchecks
       checked = spotchecks.map { |r| r["review_id"] }.to_set
-      all = reviews
+      all = reviews.select { |r| data_version(r) == Dataset::VERSION && r.dig("reviewer", "model") == MODEL }
       sample = all.sort_by { |r| JudgementDay.unit_hash("spot:" + r["review_id"]) }.first(SPOTCHECK_SAMPLE)
       sample |= all.select { |r| r["label"].nil? }
       sample.reject { |r| checked.include?(r["review_id"]) }

@@ -6,7 +6,10 @@ module JudgementDay
     # USD per million tokens.
     PRICES = {
       judge: { input: 0.042, output: 0.0 },
-      reviewer: { input: 4.00, output: 20.00 }
+      reviewer: { input: 4.00, output: 20.00 },
+      # Not checked against a price list; set high on purpose so the cap
+      # check stays safe and recorded spend errs high.
+      reviewer_fable: { input: 15.00, output: 75.00 }
     }.freeze
 
     attr_reader :cap, :spent

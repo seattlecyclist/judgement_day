@@ -27,12 +27,13 @@ bin/jd score --preset smoke1    # 20 items, one order, capped at $1
 bin/jd score --preset smoke2    # 50 items, both orders, capped at $1
 bin/jd score --preset full      # 500 items, both orders, 3 repeats, capped at $5
 bin/jd review --run full        # Claude reviews confident disagreements, capped at $10
+bin/jd review --run full --model claude-fable-5-1 --effort medium   # a second reviewer's opinion
 bin/jd spotcheck list           # the 20 reviews waiting for Mike's check
 bin/jd spotcheck add ID --verdict agree --note "..."
 bin/jd spend
 ```
 
-Every judge response is cached in `data/cache/`, so `bin/jd report --run NAME` and reruns after a fix are free. Each run stops before any call that could cross its cap.
+Items keep only the conversation up to the turn the humans voted on (`Dataset::VERSION`). Every judge response is cached in `data/cache/` by rubric and item version, so `bin/jd report --run NAME` and reruns after a fix are free. Each run stops before any call that could cross its cap.
 
 ## Outputs
 

@@ -9,6 +9,10 @@ module JudgementDay
     ROWS_URL = "https://datasets-server.huggingface.co/rows".freeze
     DATASET = "lmsys/mt_bench_human_judgments".freeze
     PAGE = 100
+    # Bumped when the item text changes, so cached judge responses and
+    # reviews made on older items are never reused. v2 trims each
+    # conversation to the turn the humans voted on.
+    VERSION = "turn-trimmed@v2".freeze
 
     # MT-Bench numbers its 80 questions in blocks of 10 per category.
     CATEGORIES = %w[writing roleplay reasoning math coding extraction stem humanities].freeze
@@ -45,6 +49,12 @@ module JudgementDay
       CATEGORIES[(question_id.to_i - 81) / 10] || "other"
     end
 
+    # The rows carry the full two-turn conversation even for turn-1 votes.
+    # Keep only the turns up to the one the humans voted on.
+    def trim(conversation, turn)
+      Array(conversation).first(2 * turn.to_i)
+    end
+
     def vote_for(row, model_a)
       winner = row.fetch("winner").to_s
       return "tie" if winner.start_with?("tie")
@@ -66,7 +76,7 @@ module JudgementDay
           "id" => "q#{qid}-t#{turn}-#{a}-vs-#{b}",
           "question_id" => qid, "turn" => turn, "category" => category(qid),
           "model_a" => a, "model_b" => b,
-          "conversation_a" => conv_a, "conversation_b" => conv_b,
+          "conversation_a" => trim(conv_a, turn), "conversation_b" => trim(conv_b, turn),
           "votes" => tally, "judges" => votes.map { |v| v["judge"] }
         }
       end
@@ -82,7 +92,10 @@ module JudgementDay
 
     def load_items
       raise Error, "No items yet: run `bin/jd fetch` first" unless File.exist?(items_path)
-      JudgementDay.read_jsonl(items_path)
+      JudgementDay.read_jsonl(items_path).map do |i|
+        i.merge("conversation_a" => trim(i["conversation_a"], i["turn"]),
+                "conversation_b" => trim(i["conversation_b"], i["turn"]))
+      end
     end
   end
 end

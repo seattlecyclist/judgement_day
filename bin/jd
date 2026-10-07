@@ -18,6 +18,8 @@ def options(args, defaults = {})
     o.on("--verdict V") { |v| opts[:verdict] = v }
     o.on("--label L") { |v| opts[:label] = v }
     o.on("--note TEXT") { |v| opts[:note] = v }
+    o.on("--model ID") { |v| opts[:model] = v }
+    o.on("--effort LEVEL") { |v| opts[:effort] = v }
   end.parse!(args)
   opts
 end
@@ -59,7 +61,8 @@ when "review"
   result, summaries = Report.write(opts[:run], Dataset.load_items)
   client = Anthropic::Client.new(api_key: Secrets.fetch(:reviewer))
   Reviewer.review(run: opts[:run], summaries: summaries, threshold: result["threshold"], client: client,
-                  budget: Budget.new(cap: opts[:cap], run: opts[:run]), limit: opts[:limit])
+                  budget: Budget.new(cap: opts[:cap], run: opts[:run]), limit: opts[:limit],
+                  model: opts[:model] || Reviewer::MODEL, effort: opts[:effort] || Reviewer::EFFORT)
 when "spotcheck"
   sub = ARGV.shift
   if sub == "list"
@@ -88,7 +91,8 @@ else
     bin/jd score --preset full           500 items, both orders, 3 repeats (cap $5)
     bin/jd score --run NAME --limit N --orders 1|2 --repeats N --cap USD
     bin/jd report --run NAME             recompute metrics from cached scores (free)
-    bin/jd review --run NAME [--cap 10]  Claude reviews confident disagreements
+    bin/jd review --run NAME [--cap 10] [--model ID --effort LEVEL]
+                                         Claude reviews confident disagreements
     bin/jd spotcheck list                reviews waiting for Mike's check
     bin/jd spotcheck add ID --verdict agree|override [--label L] --note TEXT
     bin/jd spend                         spend so far by run

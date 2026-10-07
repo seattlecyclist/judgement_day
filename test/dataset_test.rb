@@ -10,6 +10,18 @@ class DatasetTest < Minitest::Test
     assert_equal "reasoning", pair["category"]
   end
 
+  def test_turn_one_items_drop_the_second_turn
+    two_turns = Fixtures.conv("Q1", "first answer") + Fixtures.conv("Q2", "second answer")
+    rows = Fixtures.rows.first(2).map { |r| r.merge("conversation_a" => two_turns, "conversation_b" => two_turns) }
+    item = JudgementDay::Dataset.build_items(rows, min_votes: 1).first
+    assert_equal 1, item["turn"]
+    assert_equal 2, item["conversation_a"].size
+    assert_equal "first answer", item["conversation_a"].last["content"]
+
+    turn2 = JudgementDay::Dataset.build_items(rows.map { |r| r.merge("turn" => 2) }, min_votes: 1).first
+    assert_equal "second answer", turn2["conversation_b"].last["content"]
+  end
+
   def test_min_votes_filter
     items = JudgementDay::Dataset.build_items(Fixtures.rows, min_votes: 2)
     assert_equal ["q101-t1-alpaca-13b-vs-vicuna-13b"], items.map { |i| i["id"] }

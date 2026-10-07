@@ -11,7 +11,7 @@ module JudgementDay
     def initialize(client:, budget:, cache_dir: JudgementDay.path("data", "cache", "judge"), log: $stdout)
       @client = client
       @budget = budget
-      @cache_dir = File.join(cache_dir, Judge::RUBRIC_VERSION.tr("@", "_"))
+      @cache_dir = File.join(cache_dir, Judge::RUBRIC_VERSION.tr("@", "_"), Dataset::VERSION.tr("@", "_"))
       @log = log
     end
 
