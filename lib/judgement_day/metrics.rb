@@ -8,6 +8,10 @@ module JudgementDay
       "agreement" => 0.90, "coverage" => 0.50, "calibration_gap" => 0.10,
       "order_consistency" => 0.90, "repeat_flip_rate" => 0.05
     }.freeze
+    # v2 (decided 2026-10-07, before the next batch): the calibration bar is the
+    # item-weighted average gap across bins. v1 used the worst bin with 5+
+    # items, which mostly measures noise at a few hundred items.
+    BARS_VERSION = "bars@v2".freeze
     MIN_DECIDED = 10 # don't pick a threshold that decides fewer items than this
     DEFAULT_THRESHOLD = 0.80
 
@@ -90,7 +94,8 @@ module JudgementDay
           "stated" => stated.round(3), "observed" => observed.round(3), "gap" => (stated - observed).abs.round(3) }
       end
       sized = rows.select { |r| r["items"] >= 5 }
-      { "bins" => rows, "max_gap" => sized.map { |r| r["gap"] }.max }
+      mean = judged.empty? ? nil : (rows.sum { |r| r["gap"] * r["items"] } / judged.size).round(3)
+      { "bins" => rows, "max_gap" => sized.map { |r| r["gap"] }.max, "mean_gap" => mean }
     end
 
     def rate(summaries, key, want)
@@ -109,7 +114,7 @@ module JudgementDay
       measured = {
         "agreement" => result.dig("holdout", "agreement") || result.dig("all", "agreement"),
         "coverage" => result.dig("holdout", "coverage") || result.dig("all", "coverage"),
-        "calibration_gap" => result.dig("calibration", "max_gap"),
+        "calibration_gap" => result.dig("calibration", "mean_gap"),
         "order_consistency" => result["order_consistency"],
         "repeat_flip_rate" => result["repeat_flip_rate"]
       }
@@ -141,6 +146,7 @@ module JudgementDay
         "confident_disagreements" => summaries.count { |s| s["majority"] && s["confidence"] >= t && !s["agrees"] }
       }
       result["go"] = go_checks(result)
+      result["bars_version"] = BARS_VERSION
       [result, summaries]
     end
   end

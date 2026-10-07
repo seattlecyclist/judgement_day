@@ -120,19 +120,13 @@ module JudgementDay
         "threshold" => t, "threshold_calibrated" => !chosen.nil?,
         "agreement" => holdout["agreement"], "coverage" => holdout["coverage"],
         "holdout_decided" => holdout["decided"],
-        "calibration_gap" => calibration["max_gap"], "mean_calibration_gap" => mean_gap(judged),
+        "calibration_gap" => calibration["mean_gap"], "worst_bin_gap" => calibration["max_gap"],
         "calibration" => calibration,
         "ties" => judged.count { |s| s["majority"] == "tie" },
         "ties_caught" => judged.count { |s| s["majority"] == "tie" && s["pick"] == "tie" },
         "ties_called" => judged.count { |s| s["pick"] == "tie" },
         "agreement_all_items" => judged.count { |s| s["agrees"] }.fdiv(judged.size)
       }
-    end
-
-    # Expected calibration error: the item-weighted average gap across bins.
-    def mean_gap(summaries)
-      return nil if summaries.empty?
-      Metrics.calibration(summaries)["bins"].sum { |b| b["gap"] * b["items"] } / summaries.size
     end
 
     # Raw output against both maps. Each map is fitted on the dev split; its

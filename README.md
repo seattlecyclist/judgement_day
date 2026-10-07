@@ -37,7 +37,8 @@ Items keep only the conversation up to the turn the humans voted on (`Dataset::V
 
 ## Outputs
 
-- `data/runs/<run>/report.json`: threshold sweep, calibration, order and repeat stability, results by category, go / no-go checks.
+- `data/runs/<run>/report.json`: threshold sweep, calibration, order and repeat stability, results by category, go / no-go checks. Since `bars@v2` the calibration bar is the item-weighted average gap across confidence bins (≤ 0.10); reports without `bars_version` used the worst bin.
+- `data/runs/<run>/calibration.json`: from `bin/jd calibrate`, raw output against recalibrated probabilities, fitted on the dev split.
 - `data/runs/<run>/enriched.jsonl`: one record per item in the customer-facing format. The `ai_judge` block names only `judge_version`, never the model or vendor.
 - `reviews/disagreements.jsonl`: append-only log of Claude's reviews and Mike's spot-checks. Never edit or delete lines; corrections are new records.
 

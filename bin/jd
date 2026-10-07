@@ -89,9 +89,9 @@ when "calibrate"
   File.write(File.join(Report.run_dir(opts[:run]), "calibration.json"), JSON.pretty_generate(result))
   pct = ->(x) { x.nil? ? "n/a" : format("%.1f%%", x * 100) }
   result.each do |name, r|
-    puts format("%-9s threshold %.2f  agreement %-6s coverage %-6s worst-bin gap %.3f  mean gap %.3f  ties %d/%d",
+    puts format("%-9s threshold %.2f  agreement %-6s coverage %-6s calibration gap %.3f  worst bin %.3f  ties %d/%d",
                 name, r["threshold"], pct.(r["agreement"]), pct.(r["coverage"]), r["calibration_gap"],
-                r["mean_calibration_gap"], r["ties_caught"], r["ties"])
+                r["worst_bin_gap"], r["ties_caught"], r["ties"])
   end
 when "spend"
   Budget.totals.each { |(run, kind), t| puts format("%-10s %-9s %5d calls  $%.4f", run, kind, t[:calls], t[:cost_usd]) }
