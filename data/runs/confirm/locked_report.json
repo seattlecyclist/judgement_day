@@ -1,0 +1,205 @@
+{
+  "locked_version": "locked@2026-10-07",
+  "threshold": 0.9,
+  "items_scored": 461,
+  "items_with_majority": 375,
+  "all": {
+    "threshold": 0.9,
+    "items": 375,
+    "decided": 234,
+    "coverage": 0.624,
+    "agreement": 0.905982905982906
+  },
+  "calibration": {
+    "bins": [
+      {
+        "bin": "0.0-0.1",
+        "items": 2,
+        "stated": 0.0,
+        "observed": 0.0,
+        "gap": 0.0
+      },
+      {
+        "bin": "0.2-0.3",
+        "items": 26,
+        "stated": 0.204,
+        "observed": 0.346,
+        "gap": 0.142
+      },
+      {
+        "bin": "0.3-0.4",
+        "items": 21,
+        "stated": 0.347,
+        "observed": 0.238,
+        "gap": 0.109
+      },
+      {
+        "bin": "0.5-0.6",
+        "items": 33,
+        "stated": 0.507,
+        "observed": 0.485,
+        "gap": 0.022
+      },
+      {
+        "bin": "0.7-0.8",
+        "items": 91,
+        "stated": 0.73,
+        "observed": 0.637,
+        "gap": 0.093
+      },
+      {
+        "bin": "0.8-0.9",
+        "items": 101,
+        "stated": 0.854,
+        "observed": 0.921,
+        "gap": 0.067
+      },
+      {
+        "bin": "0.9-1.0",
+        "items": 101,
+        "stated": 0.988,
+        "observed": 0.97,
+        "gap": 0.018
+      }
+    ],
+    "max_gap": 0.142,
+    "mean_gap": 0.063
+  },
+  "raw_calibration": {
+    "bins": [
+      {
+        "bin": "0.3-0.4",
+        "items": 1,
+        "stated": 0.365,
+        "observed": 0.0,
+        "gap": 0.365
+      },
+      {
+        "bin": "0.4-0.5",
+        "items": 16,
+        "stated": 0.461,
+        "observed": 0.313,
+        "gap": 0.149
+      },
+      {
+        "bin": "0.5-0.6",
+        "items": 27,
+        "stated": 0.545,
+        "observed": 0.296,
+        "gap": 0.248
+      },
+      {
+        "bin": "0.6-0.7",
+        "items": 27,
+        "stated": 0.641,
+        "observed": 0.37,
+        "gap": 0.271
+      },
+      {
+        "bin": "0.7-0.8",
+        "items": 29,
+        "stated": 0.746,
+        "observed": 0.552,
+        "gap": 0.195
+      },
+      {
+        "bin": "0.8-0.9",
+        "items": 41,
+        "stated": 0.854,
+        "observed": 0.683,
+        "gap": 0.171
+      },
+      {
+        "bin": "0.9-1.0",
+        "items": 234,
+        "stated": 0.977,
+        "observed": 0.906,
+        "gap": 0.071
+      }
+    ],
+    "max_gap": 0.271,
+    "mean_gap": 0.123
+  },
+  "order_consistency": 0.911062906724512,
+  "repeat_flip_rate": 0.04772234273318872,
+  "ties": 76,
+  "ties_caught": 10,
+  "by_category": {
+    "coding": {
+      "items": 51,
+      "decided": 40,
+      "coverage": 0.7843137254901961,
+      "agreement": 0.9
+    },
+    "extraction": {
+      "items": 43,
+      "decided": 30,
+      "coverage": 0.6976744186046512,
+      "agreement": 0.9666666666666667
+    },
+    "humanities": {
+      "items": 52,
+      "decided": 36,
+      "coverage": 0.6923076923076923,
+      "agreement": 0.8611111111111112
+    },
+    "math": {
+      "items": 30,
+      "decided": 16,
+      "coverage": 0.5333333333333333,
+      "agreement": 0.875
+    },
+    "reasoning": {
+      "items": 60,
+      "decided": 22,
+      "coverage": 0.36666666666666664,
+      "agreement": 0.8181818181818182
+    },
+    "roleplay": {
+      "items": 49,
+      "decided": 31,
+      "coverage": 0.6326530612244898,
+      "agreement": 0.9354838709677419
+    },
+    "stem": {
+      "items": 50,
+      "decided": 38,
+      "coverage": 0.76,
+      "agreement": 0.9473684210526315
+    },
+    "writing": {
+      "items": 40,
+      "decided": 21,
+      "coverage": 0.525,
+      "agreement": 0.9047619047619048
+    }
+  },
+  "go": {
+    "agreement": {
+      "value": 0.905982905982906,
+      "bar": 0.9,
+      "pass": true
+    },
+    "coverage": {
+      "value": 0.624,
+      "bar": 0.5,
+      "pass": true
+    },
+    "calibration_gap": {
+      "value": 0.063,
+      "bar": 0.1,
+      "pass": true
+    },
+    "order_consistency": {
+      "value": 0.911062906724512,
+      "bar": 0.9,
+      "pass": true
+    },
+    "repeat_flip_rate": {
+      "value": 0.04772234273318872,
+      "bar": 0.05,
+      "pass": true
+    }
+  },
+  "bars_version": "bars@v2"
+}
