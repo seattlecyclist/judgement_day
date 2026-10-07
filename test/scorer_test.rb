@@ -30,4 +30,27 @@ class ScorerTest < Minitest::Test
     assert_equal 0, client.calls
     assert_empty rows
   end
+
+  class SlowJudge < Fixtures::FakeJudge
+    def call(body)
+      sleep 0.02
+      super
+    end
+  end
+
+  def test_parallel_workers_keep_row_order_and_respect_cap
+    client = SlowJudge.new
+    rows = scorer(client).score(@items, orders: 2, repeats: 3)
+    assert_equal @items.size * 6, rows.size
+    expected = @items.flat_map { |i| (0..1).flat_map { |o| (0..2).map { |r| [i["id"], o, r] } } }
+    assert_equal expected, rows.map { |r| [r["item_id"], r["order"], r["repeat"]] }
+
+    # The cap stops new calls partway; finished calls are kept.
+    capped = SlowJudge.new
+    other = JudgementDay::Dataset.build_items(Fixtures.rows.map { |r| r.merge("question_id" => r["question_id"] + 1) }, min_votes: 1)
+    rows = scorer(capped, cap: 0.0002).score(other, orders: 2, repeats: 3)
+    assert_operator capped.calls, :<, other.size * 6
+    assert_operator capped.calls, :>, 0
+    assert_equal capped.calls, rows.size
+  end
 end

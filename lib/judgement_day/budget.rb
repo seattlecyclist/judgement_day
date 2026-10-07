@@ -19,6 +19,7 @@ module JudgementDay
       @run = run
       @ledger = ledger
       @spent = 0.0
+      @lock = Mutex.new
     end
 
     def self.cost(kind, input_tokens:, output_tokens: 0)
@@ -36,6 +37,26 @@ module JudgementDay
       return if @spent + estimate <= @cap
       raise BudgetExceeded, format("Stopping: next call could cost $%.4f and only $%.4f of the $%.2f cap is left",
                                    estimate, @cap - @spent, @cap)
+    end
+
+    # For concurrent callers: checks the cap and sets the worst-case estimate
+    # aside in one step, so parallel calls can't jointly cross the cap.
+    # Returns the reserved amount, to hand back to `settle`.
+    def reserve!(kind, input_chars:, max_output_tokens: 0)
+      @lock.synchronize do
+        check!(kind, input_chars: input_chars, max_output_tokens: max_output_tokens)
+        estimate = self.class.cost(kind, input_tokens: (input_chars / 3.0).ceil, output_tokens: max_output_tokens)
+        @spent += estimate
+        estimate
+      end
+    end
+
+    # Releases a reservation and records the actual cost (nothing if the call failed).
+    def settle(kind, reserved, input_tokens: nil, output_tokens: 0)
+      @lock.synchronize do
+        @spent -= reserved
+        record(kind, input_tokens: input_tokens, output_tokens: output_tokens) if input_tokens
+      end
     end
 
     def record(kind, input_tokens:, output_tokens: 0)
