@@ -1,7 +1,7 @@
 {
   "items_scored": 50,
   "items_with_majority": 32,
-  "threshold": 0.55,
+  "threshold": 0.52,
   "threshold_calibrated": true,
   "sweep": [
     {
@@ -9,321 +9,321 @@
       "items": 32,
       "decided": 31,
       "coverage": 0.96875,
-      "agreement": 0.8387096774193549
+      "agreement": 0.8709677419354839
     },
     {
       "threshold": 0.51,
       "items": 32,
       "decided": 31,
       "coverage": 0.96875,
-      "agreement": 0.8387096774193549
+      "agreement": 0.8709677419354839
     },
     {
       "threshold": 0.52,
       "items": 32,
-      "decided": 31,
-      "coverage": 0.96875,
-      "agreement": 0.8387096774193549
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.53,
       "items": 32,
-      "decided": 31,
-      "coverage": 0.96875,
-      "agreement": 0.8387096774193549
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.54,
       "items": 32,
-      "decided": 31,
-      "coverage": 0.96875,
-      "agreement": 0.8387096774193549
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.55,
       "items": 32,
-      "decided": 29,
-      "coverage": 0.90625,
-      "agreement": 0.896551724137931
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.56,
       "items": 32,
-      "decided": 29,
-      "coverage": 0.90625,
-      "agreement": 0.896551724137931
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.57,
       "items": 32,
-      "decided": 29,
-      "coverage": 0.90625,
-      "agreement": 0.896551724137931
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.58,
       "items": 32,
-      "decided": 29,
-      "coverage": 0.90625,
-      "agreement": 0.896551724137931
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.59,
       "items": 32,
-      "decided": 28,
-      "coverage": 0.875,
-      "agreement": 0.8928571428571429
+      "decided": 30,
+      "coverage": 0.9375,
+      "agreement": 0.9
     },
     {
       "threshold": 0.6,
       "items": 32,
-      "decided": 27,
-      "coverage": 0.84375,
-      "agreement": 0.8888888888888888
+      "decided": 28,
+      "coverage": 0.875,
+      "agreement": 0.9285714285714286
     },
     {
       "threshold": 0.61,
       "items": 32,
-      "decided": 27,
-      "coverage": 0.84375,
-      "agreement": 0.8888888888888888
+      "decided": 28,
+      "coverage": 0.875,
+      "agreement": 0.9285714285714286
     },
     {
       "threshold": 0.62,
       "items": 32,
-      "decided": 26,
-      "coverage": 0.8125,
-      "agreement": 0.9230769230769231
+      "decided": 28,
+      "coverage": 0.875,
+      "agreement": 0.9285714285714286
     },
     {
       "threshold": 0.63,
       "items": 32,
-      "decided": 26,
-      "coverage": 0.8125,
-      "agreement": 0.9230769230769231
+      "decided": 28,
+      "coverage": 0.875,
+      "agreement": 0.9285714285714286
     },
     {
       "threshold": 0.64,
       "items": 32,
-      "decided": 26,
-      "coverage": 0.8125,
-      "agreement": 0.9230769230769231
+      "decided": 28,
+      "coverage": 0.875,
+      "agreement": 0.9285714285714286
     },
     {
       "threshold": 0.65,
       "items": 32,
+      "decided": 28,
+      "coverage": 0.875,
+      "agreement": 0.9285714285714286
+    },
+    {
+      "threshold": 0.66,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.67,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.68,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.69,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.7,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.71,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.72,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.73,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.74,
+      "items": 32,
+      "decided": 27,
+      "coverage": 0.84375,
+      "agreement": 0.9259259259259259
+    },
+    {
+      "threshold": 0.75,
+      "items": 32,
       "decided": 26,
       "coverage": 0.8125,
       "agreement": 0.9230769230769231
     },
     {
-      "threshold": 0.66,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.67,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.68,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.69,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.7,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.71,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.72,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.73,
-      "items": 32,
-      "decided": 25,
-      "coverage": 0.78125,
-      "agreement": 0.92
-    },
-    {
-      "threshold": 0.74,
-      "items": 32,
-      "decided": 24,
-      "coverage": 0.75,
-      "agreement": 0.9166666666666666
-    },
-    {
-      "threshold": 0.75,
-      "items": 32,
-      "decided": 24,
-      "coverage": 0.75,
-      "agreement": 0.9166666666666666
-    },
-    {
       "threshold": 0.76,
       "items": 32,
-      "decided": 22,
-      "coverage": 0.6875,
-      "agreement": 0.9090909090909091
+      "decided": 25,
+      "coverage": 0.78125,
+      "agreement": 0.92
     },
     {
       "threshold": 0.77,
       "items": 32,
+      "decided": 24,
+      "coverage": 0.75,
+      "agreement": 0.9166666666666666
+    },
+    {
+      "threshold": 0.78,
+      "items": 32,
+      "decided": 24,
+      "coverage": 0.75,
+      "agreement": 0.9166666666666666
+    },
+    {
+      "threshold": 0.79,
+      "items": 32,
+      "decided": 23,
+      "coverage": 0.71875,
+      "agreement": 0.9130434782608695
+    },
+    {
+      "threshold": 0.8,
+      "items": 32,
+      "decided": 23,
+      "coverage": 0.71875,
+      "agreement": 0.9130434782608695
+    },
+    {
+      "threshold": 0.81,
+      "items": 32,
+      "decided": 23,
+      "coverage": 0.71875,
+      "agreement": 0.9130434782608695
+    },
+    {
+      "threshold": 0.82,
+      "items": 32,
+      "decided": 23,
+      "coverage": 0.71875,
+      "agreement": 0.9130434782608695
+    },
+    {
+      "threshold": 0.83,
+      "items": 32,
+      "decided": 23,
+      "coverage": 0.71875,
+      "agreement": 0.9130434782608695
+    },
+    {
+      "threshold": 0.84,
+      "items": 32,
+      "decided": 23,
+      "coverage": 0.71875,
+      "agreement": 0.9130434782608695
+    },
+    {
+      "threshold": 0.85,
+      "items": 32,
       "decided": 22,
       "coverage": 0.6875,
       "agreement": 0.9090909090909091
     },
     {
-      "threshold": 0.78,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.79,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.8,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.81,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.82,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.83,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.84,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
-      "threshold": 0.85,
-      "items": 32,
-      "decided": 21,
-      "coverage": 0.65625,
-      "agreement": 0.9523809523809523
-    },
-    {
       "threshold": 0.86,
       "items": 32,
-      "decided": 20,
-      "coverage": 0.625,
-      "agreement": 0.95
+      "decided": 22,
+      "coverage": 0.6875,
+      "agreement": 0.9090909090909091
     },
     {
       "threshold": 0.87,
       "items": 32,
-      "decided": 19,
-      "coverage": 0.59375,
-      "agreement": 0.9473684210526315
+      "decided": 22,
+      "coverage": 0.6875,
+      "agreement": 0.9090909090909091
     },
     {
       "threshold": 0.88,
       "items": 32,
-      "decided": 17,
-      "coverage": 0.53125,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.65625,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.89,
       "items": 32,
-      "decided": 17,
-      "coverage": 0.53125,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.65625,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.9,
       "items": 32,
-      "decided": 16,
-      "coverage": 0.5,
+      "decided": 20,
+      "coverage": 0.625,
       "agreement": 1.0
     },
     {
       "threshold": 0.91,
       "items": 32,
-      "decided": 16,
-      "coverage": 0.5,
+      "decided": 18,
+      "coverage": 0.5625,
       "agreement": 1.0
     },
     {
       "threshold": 0.92,
       "items": 32,
-      "decided": 15,
-      "coverage": 0.46875,
+      "decided": 17,
+      "coverage": 0.53125,
       "agreement": 1.0
     },
     {
       "threshold": 0.93,
       "items": 32,
-      "decided": 15,
-      "coverage": 0.46875,
+      "decided": 17,
+      "coverage": 0.53125,
       "agreement": 1.0
     },
     {
       "threshold": 0.94,
       "items": 32,
-      "decided": 15,
-      "coverage": 0.46875,
+      "decided": 17,
+      "coverage": 0.53125,
       "agreement": 1.0
     },
     {
       "threshold": 0.95,
       "items": 32,
-      "decided": 15,
-      "coverage": 0.46875,
+      "decided": 16,
+      "coverage": 0.5,
       "agreement": 1.0
     },
     {
@@ -343,15 +343,15 @@
     {
       "threshold": 0.98,
       "items": 32,
-      "decided": 12,
-      "coverage": 0.375,
+      "decided": 14,
+      "coverage": 0.4375,
       "agreement": 1.0
     },
     {
       "threshold": 0.99,
       "items": 32,
-      "decided": 10,
-      "coverage": 0.3125,
+      "decided": 11,
+      "coverage": 0.34375,
       "agreement": 1.0
     }
   ],
@@ -373,309 +373,309 @@
     {
       "threshold": 0.52,
       "items": 27,
-      "decided": 26,
-      "coverage": 0.9629629629629629,
-      "agreement": 0.8846153846153846
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.53,
       "items": 27,
-      "decided": 26,
-      "coverage": 0.9629629629629629,
-      "agreement": 0.8846153846153846
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.54,
       "items": 27,
-      "decided": 26,
-      "coverage": 0.9629629629629629,
-      "agreement": 0.8846153846153846
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.55,
       "items": 27,
-      "decided": 24,
-      "coverage": 0.8888888888888888,
-      "agreement": 0.9583333333333334
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.56,
       "items": 27,
-      "decided": 24,
-      "coverage": 0.8888888888888888,
-      "agreement": 0.9583333333333334
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.57,
       "items": 27,
-      "decided": 24,
-      "coverage": 0.8888888888888888,
-      "agreement": 0.9583333333333334
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.58,
       "items": 27,
-      "decided": 24,
-      "coverage": 0.8888888888888888,
-      "agreement": 0.9583333333333334
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
     },
     {
       "threshold": 0.59,
       "items": 27,
+      "decided": 25,
+      "coverage": 0.9259259259259259,
+      "agreement": 0.92
+    },
+    {
+      "threshold": 0.6,
+      "items": 27,
       "decided": 24,
       "coverage": 0.8888888888888888,
       "agreement": 0.9583333333333334
     },
     {
-      "threshold": 0.6,
-      "items": 27,
-      "decided": 23,
-      "coverage": 0.8518518518518519,
-      "agreement": 0.9565217391304348
-    },
-    {
       "threshold": 0.61,
       "items": 27,
-      "decided": 23,
-      "coverage": 0.8518518518518519,
-      "agreement": 0.9565217391304348
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.62,
       "items": 27,
-      "decided": 22,
-      "coverage": 0.8148148148148148,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.63,
       "items": 27,
-      "decided": 22,
-      "coverage": 0.8148148148148148,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.64,
       "items": 27,
-      "decided": 22,
-      "coverage": 0.8148148148148148,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.65,
       "items": 27,
-      "decided": 22,
-      "coverage": 0.8148148148148148,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.66,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.67,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.68,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.69,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.7,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.71,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.72,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.73,
       "items": 27,
-      "decided": 21,
-      "coverage": 0.7777777777777778,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.74,
       "items": 27,
-      "decided": 20,
-      "coverage": 0.7407407407407407,
-      "agreement": 1.0
+      "decided": 24,
+      "coverage": 0.8888888888888888,
+      "agreement": 0.9583333333333334
     },
     {
       "threshold": 0.75,
       "items": 27,
-      "decided": 20,
-      "coverage": 0.7407407407407407,
-      "agreement": 1.0
+      "decided": 23,
+      "coverage": 0.8518518518518519,
+      "agreement": 0.9565217391304348
     },
     {
       "threshold": 0.76,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 23,
+      "coverage": 0.8518518518518519,
+      "agreement": 0.9565217391304348
     },
     {
       "threshold": 0.77,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 22,
+      "coverage": 0.8148148148148148,
+      "agreement": 0.9545454545454546
     },
     {
       "threshold": 0.78,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 22,
+      "coverage": 0.8148148148148148,
+      "agreement": 0.9545454545454546
     },
     {
       "threshold": 0.79,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.7777777777777778,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.8,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.7777777777777778,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.81,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.7777777777777778,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.82,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.7777777777777778,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.83,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.7777777777777778,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.84,
       "items": 27,
-      "decided": 19,
-      "coverage": 0.7037037037037037,
-      "agreement": 1.0
+      "decided": 21,
+      "coverage": 0.7777777777777778,
+      "agreement": 0.9523809523809523
     },
     {
       "threshold": 0.85,
       "items": 27,
+      "decided": 20,
+      "coverage": 0.7407407407407407,
+      "agreement": 0.95
+    },
+    {
+      "threshold": 0.86,
+      "items": 27,
+      "decided": 20,
+      "coverage": 0.7407407407407407,
+      "agreement": 0.95
+    },
+    {
+      "threshold": 0.87,
+      "items": 27,
+      "decided": 20,
+      "coverage": 0.7407407407407407,
+      "agreement": 0.95
+    },
+    {
+      "threshold": 0.88,
+      "items": 27,
+      "decided": 20,
+      "coverage": 0.7407407407407407,
+      "agreement": 0.95
+    },
+    {
+      "threshold": 0.89,
+      "items": 27,
+      "decided": 20,
+      "coverage": 0.7407407407407407,
+      "agreement": 0.95
+    },
+    {
+      "threshold": 0.9,
+      "items": 27,
       "decided": 19,
       "coverage": 0.7037037037037037,
       "agreement": 1.0
     },
     {
-      "threshold": 0.86,
-      "items": 27,
-      "decided": 18,
-      "coverage": 0.6666666666666666,
-      "agreement": 1.0
-    },
-    {
-      "threshold": 0.87,
+      "threshold": 0.91,
       "items": 27,
       "decided": 17,
       "coverage": 0.6296296296296297,
       "agreement": 1.0
     },
     {
-      "threshold": 0.88,
-      "items": 27,
-      "decided": 16,
-      "coverage": 0.5925925925925926,
-      "agreement": 1.0
-    },
-    {
-      "threshold": 0.89,
-      "items": 27,
-      "decided": 16,
-      "coverage": 0.5925925925925926,
-      "agreement": 1.0
-    },
-    {
-      "threshold": 0.9,
-      "items": 27,
-      "decided": 15,
-      "coverage": 0.5555555555555556,
-      "agreement": 1.0
-    },
-    {
-      "threshold": 0.91,
-      "items": 27,
-      "decided": 15,
-      "coverage": 0.5555555555555556,
-      "agreement": 1.0
-    },
-    {
       "threshold": 0.92,
       "items": 27,
-      "decided": 14,
-      "coverage": 0.5185185185185185,
+      "decided": 16,
+      "coverage": 0.5925925925925926,
       "agreement": 1.0
     },
     {
       "threshold": 0.93,
       "items": 27,
-      "decided": 14,
-      "coverage": 0.5185185185185185,
+      "decided": 16,
+      "coverage": 0.5925925925925926,
       "agreement": 1.0
     },
     {
       "threshold": 0.94,
       "items": 27,
-      "decided": 14,
-      "coverage": 0.5185185185185185,
+      "decided": 16,
+      "coverage": 0.5925925925925926,
       "agreement": 1.0
     },
     {
       "threshold": 0.95,
       "items": 27,
-      "decided": 14,
-      "coverage": 0.5185185185185185,
+      "decided": 15,
+      "coverage": 0.5555555555555556,
       "agreement": 1.0
     },
     {
@@ -695,80 +695,80 @@
     {
       "threshold": 0.98,
       "items": 27,
-      "decided": 11,
-      "coverage": 0.4074074074074074,
+      "decided": 13,
+      "coverage": 0.48148148148148145,
       "agreement": 1.0
     },
     {
       "threshold": 0.99,
       "items": 27,
-      "decided": 9,
-      "coverage": 0.3333333333333333,
+      "decided": 10,
+      "coverage": 0.37037037037037035,
       "agreement": 1.0
     }
   ],
   "all": {
-    "threshold": 0.55,
+    "threshold": 0.52,
     "items": 32,
-    "decided": 29,
-    "coverage": 0.90625,
-    "agreement": 0.896551724137931
+    "decided": 30,
+    "coverage": 0.9375,
+    "agreement": 0.9
   },
   "holdout": {
-    "threshold": 0.55,
+    "threshold": 0.52,
     "items": 5,
     "decided": 5,
     "coverage": 1.0,
-    "agreement": 0.6
+    "agreement": 0.8
   },
   "calibration": {
     "bins": [
       {
         "bin": "0.4-0.5",
         "items": 1,
-        "stated": 0.485,
+        "stated": 0.49,
         "observed": 1.0,
-        "gap": 0.515
+        "gap": 0.51
       },
       {
         "bin": "0.5-0.6",
-        "items": 4,
-        "stated": 0.568,
-        "observed": 0.5,
-        "gap": 0.068
+        "items": 3,
+        "stated": 0.567,
+        "observed": 0.333,
+        "gap": 0.233
       },
       {
         "bin": "0.6-0.7",
-        "items": 2,
-        "stated": 0.633,
-        "observed": 0.5,
-        "gap": 0.133
+        "items": 1,
+        "stated": 0.66,
+        "observed": 1.0,
+        "gap": 0.34
       },
       {
         "bin": "0.7-0.8",
         "items": 4,
-        "stated": 0.754,
-        "observed": 0.75,
-        "gap": 0.004
+        "stated": 0.76,
+        "observed": 1.0,
+        "gap": 0.24
       },
       {
         "bin": "0.8-0.9",
-        "items": 4,
-        "stated": 0.864,
-        "observed": 0.75,
-        "gap": 0.114
+        "items": 3,
+        "stated": 0.87,
+        "observed": 0.333,
+        "gap": 0.537
       },
       {
         "bin": "0.9-1.0",
-        "items": 17,
-        "stated": 0.981,
+        "items": 20,
+        "stated": 0.976,
         "observed": 1.0,
-        "gap": 0.019
+        "gap": 0.024
       }
     ],
-    "max_gap": 0.019
+    "max_gap": 0.024
   },
-  "order_consistency": 0.88,
+  "order_consistency": 0.94,
   "repeat_flip_rate": null,
   "by_category": {
     "coding": {
@@ -797,15 +797,15 @@
     },
     "reasoning": {
       "items": 5,
-      "decided": 4,
-      "coverage": 0.8,
-      "agreement": 0.75
+      "decided": 5,
+      "coverage": 1.0,
+      "agreement": 0.8
     },
     "roleplay": {
       "items": 4,
       "decided": 3,
       "coverage": 0.75,
-      "agreement": 1.0
+      "agreement": 0.6666666666666666
     },
     "stem": {
       "items": 6,
@@ -817,13 +817,13 @@
       "items": 2,
       "decided": 2,
       "coverage": 1.0,
-      "agreement": 0.5
+      "agreement": 1.0
     }
   },
   "confident_disagreements": 3,
   "go": {
     "agreement": {
-      "value": 0.6,
+      "value": 0.8,
       "bar": 0.9,
       "pass": false
     },
@@ -833,14 +833,14 @@
       "pass": true
     },
     "calibration_gap": {
-      "value": 0.019,
+      "value": 0.024,
       "bar": 0.1,
       "pass": true
     },
     "order_consistency": {
-      "value": 0.88,
+      "value": 0.94,
       "bar": 0.9,
-      "pass": false
+      "pass": true
     },
     "repeat_flip_rate": {
       "value": null,
@@ -849,11 +849,11 @@
     }
   },
   "run": "smoke2",
-  "generated_at": "2026-10-07T20:10:45Z",
+  "generated_at": "2026-10-07T20:54:01Z",
   "spend": {
     "judge": {
-      "calls": 80,
-      "cost_usd": 0.0049
+      "calls": 160,
+      "cost_usd": 0.0092
     }
   }
 }
