@@ -1,0 +1,413 @@
+{
+  "raw": {
+    "threshold": 0.9,
+    "threshold_calibrated": true,
+    "agreement": 0.9230769230769231,
+    "coverage": 0.5131578947368421,
+    "holdout_decided": 39,
+    "calibration_gap": 0.26,
+    "mean_calibration_gap": 0.11370833333333334,
+    "calibration": {
+      "bins": [
+        {
+          "bin": "0.3-0.4",
+          "items": 1,
+          "stated": 0.377,
+          "observed": 0.0,
+          "gap": 0.377
+        },
+        {
+          "bin": "0.4-0.5",
+          "items": 15,
+          "stated": 0.468,
+          "observed": 0.267,
+          "gap": 0.202
+        },
+        {
+          "bin": "0.5-0.6",
+          "items": 35,
+          "stated": 0.546,
+          "observed": 0.286,
+          "gap": 0.26
+        },
+        {
+          "bin": "0.6-0.7",
+          "items": 30,
+          "stated": 0.645,
+          "observed": 0.5,
+          "gap": 0.145
+        },
+        {
+          "bin": "0.7-0.8",
+          "items": 31,
+          "stated": 0.754,
+          "observed": 0.613,
+          "gap": 0.141
+        },
+        {
+          "bin": "0.8-0.9",
+          "items": 43,
+          "stated": 0.854,
+          "observed": 0.721,
+          "gap": 0.133
+        },
+        {
+          "bin": "0.9-1.0",
+          "items": 229,
+          "stated": 0.981,
+          "observed": 0.908,
+          "gap": 0.073
+        }
+      ],
+      "max_gap": 0.26
+    },
+    "ties": 68,
+    "ties_caught": 15,
+    "ties_called": 18,
+    "agreement_all_items": 0.7473958333333334
+  },
+  "scaling": {
+    "threshold": 0.63,
+    "threshold_calibrated": true,
+    "agreement": 0.9,
+    "coverage": 0.5263157894736842,
+    "holdout_decided": 40,
+    "calibration_gap": 0.199,
+    "mean_calibration_gap": 0.0769609375,
+    "calibration": {
+      "bins": [
+        {
+          "bin": "0.3-0.4",
+          "items": 23,
+          "stated": 0.369,
+          "observed": 0.261,
+          "gap": 0.108
+        },
+        {
+          "bin": "0.4-0.5",
+          "items": 64,
+          "stated": 0.44,
+          "observed": 0.516,
+          "gap": 0.075
+        },
+        {
+          "bin": "0.5-0.6",
+          "items": 56,
+          "stated": 0.551,
+          "observed": 0.75,
+          "gap": 0.199
+        },
+        {
+          "bin": "0.6-0.7",
+          "items": 35,
+          "stated": 0.647,
+          "observed": 0.657,
+          "gap": 0.01
+        },
+        {
+          "bin": "0.7-0.8",
+          "items": 35,
+          "stated": 0.742,
+          "observed": 0.857,
+          "gap": 0.115
+        },
+        {
+          "bin": "0.8-0.9",
+          "items": 36,
+          "stated": 0.857,
+          "observed": 0.917,
+          "gap": 0.06
+        },
+        {
+          "bin": "0.9-1.0",
+          "items": 135,
+          "stated": 0.975,
+          "observed": 0.941,
+          "gap": 0.034
+        }
+      ],
+      "max_gap": 0.199
+    },
+    "ties": 68,
+    "ties_caught": 32,
+    "ties_called": 52,
+    "agreement_all_items": 0.765625,
+    "map": {
+      "method": "scaling",
+      "temperature": 2.0,
+      "tie_bias": 0.9
+    }
+  },
+  "isotonic": {
+    "threshold": 0.75,
+    "threshold_calibrated": true,
+    "agreement": 0.9444444444444444,
+    "coverage": 0.47368421052631576,
+    "holdout_decided": 36,
+    "calibration_gap": 0.145,
+    "mean_calibration_gap": 0.03723697916666666,
+    "calibration": {
+      "bins": [
+        {
+          "bin": "0.0-0.1",
+          "items": 3,
+          "stated": 0.0,
+          "observed": 0.667,
+          "gap": 0.667
+        },
+        {
+          "bin": "0.2-0.3",
+          "items": 23,
+          "stated": 0.255,
+          "observed": 0.304,
+          "gap": 0.05
+        },
+        {
+          "bin": "0.3-0.4",
+          "items": 40,
+          "stated": 0.348,
+          "observed": 0.3,
+          "gap": 0.048
+        },
+        {
+          "bin": "0.4-0.5",
+          "items": 19,
+          "stated": 0.434,
+          "observed": 0.579,
+          "gap": 0.145
+        },
+        {
+          "bin": "0.5-0.6",
+          "items": 7,
+          "stated": 0.562,
+          "observed": 0.429,
+          "gap": 0.133
+        },
+        {
+          "bin": "0.6-0.7",
+          "items": 2,
+          "stated": 0.667,
+          "observed": 0.5,
+          "gap": 0.167
+        },
+        {
+          "bin": "0.7-0.8",
+          "items": 102,
+          "stated": 0.746,
+          "observed": 0.745,
+          "gap": 0.001
+        },
+        {
+          "bin": "0.8-0.9",
+          "items": 61,
+          "stated": 0.87,
+          "observed": 0.885,
+          "gap": 0.015
+        },
+        {
+          "bin": "0.9-1.0",
+          "items": 127,
+          "stated": 0.986,
+          "observed": 0.953,
+          "gap": 0.033
+        }
+      ],
+      "max_gap": 0.145
+    },
+    "ties": 68,
+    "ties_caught": 15,
+    "ties_called": 18,
+    "agreement_all_items": 0.7473958333333334,
+    "map": {
+      "method": "isotonic",
+      "steps": [
+        [
+          0.3767,
+          0.0
+        ],
+        [
+          0.4267,
+          0.25
+        ],
+        [
+          0.49,
+          0.2727
+        ],
+        [
+          0.535,
+          0.3333
+        ],
+        [
+          0.6067,
+          0.3636
+        ],
+        [
+          0.6667,
+          0.5
+        ],
+        [
+          0.7217,
+          0.5714
+        ],
+        [
+          0.7567,
+          0.7429
+        ],
+        [
+          0.9383,
+          0.7692
+        ],
+        [
+          0.9617,
+          0.8841
+        ],
+        [
+          0.9967,
+          1.0
+        ]
+      ]
+    }
+  },
+  "both": {
+    "threshold": 0.72,
+    "threshold_calibrated": true,
+    "agreement": 0.8974358974358975,
+    "coverage": 0.5131578947368421,
+    "holdout_decided": 39,
+    "calibration_gap": 0.355,
+    "mean_calibration_gap": 0.06747135416666666,
+    "calibration": {
+      "bins": [
+        {
+          "bin": "0.0-0.1",
+          "items": 1,
+          "stated": 0.0,
+          "observed": 1.0,
+          "gap": 1.0
+        },
+        {
+          "bin": "0.2-0.3",
+          "items": 13,
+          "stated": 0.234,
+          "observed": 0.231,
+          "gap": 0.003
+        },
+        {
+          "bin": "0.3-0.4",
+          "items": 52,
+          "stated": 0.354,
+          "observed": 0.519,
+          "gap": 0.165
+        },
+        {
+          "bin": "0.4-0.5",
+          "items": 9,
+          "stated": 0.466,
+          "observed": 0.111,
+          "gap": 0.355
+        },
+        {
+          "bin": "0.5-0.6",
+          "items": 5,
+          "stated": 0.5,
+          "observed": 0.4,
+          "gap": 0.1
+        },
+        {
+          "bin": "0.6-0.7",
+          "items": 41,
+          "stated": 0.652,
+          "observed": 0.732,
+          "gap": 0.08
+        },
+        {
+          "bin": "0.7-0.8",
+          "items": 48,
+          "stated": 0.745,
+          "observed": 0.688,
+          "gap": 0.057
+        },
+        {
+          "bin": "0.8-0.9",
+          "items": 86,
+          "stated": 0.851,
+          "observed": 0.872,
+          "gap": 0.021
+        },
+        {
+          "bin": "0.9-1.0",
+          "items": 129,
+          "stated": 0.983,
+          "observed": 0.946,
+          "gap": 0.037
+        }
+      ],
+      "max_gap": 0.355
+    },
+    "ties": 68,
+    "ties_caught": 32,
+    "ties_called": 52,
+    "agreement_all_items": 0.765625,
+    "map": {
+      "method": "both",
+      "scaling": {
+        "method": "scaling",
+        "temperature": 2.0,
+        "tie_bias": 0.9
+      },
+      "isotonic": {
+        "method": "isotonic",
+        "steps": [
+          [
+            0.351,
+            0.2143
+          ],
+          [
+            0.3869,
+            0.25
+          ],
+          [
+            0.4089,
+            0.3871
+          ],
+          [
+            0.4651,
+            0.5
+          ],
+          [
+            0.4688,
+            0.6429
+          ],
+          [
+            0.5074,
+            0.6471
+          ],
+          [
+            0.5613,
+            0.7179
+          ],
+          [
+            0.6494,
+            0.75
+          ],
+          [
+            0.6655,
+            0.8261
+          ],
+          [
+            0.7361,
+            0.8594
+          ],
+          [
+            0.9317,
+            0.9167
+          ],
+          [
+            0.9431,
+            1.0
+          ]
+        ]
+      }
+    }
+  }
+}

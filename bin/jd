@@ -81,6 +81,18 @@ when "spotcheck"
   else
     abort "Usage: bin/jd spotcheck list | add REVIEW_ID ..."
   end
+when "calibrate"
+  opts = options(ARGV)
+  require_run!(opts)
+  rows = JudgementDay.read_jsonl(Report.scores_path(opts[:run]))
+  result = Calibration.evaluate(Dataset.load_items, rows)
+  File.write(File.join(Report.run_dir(opts[:run]), "calibration.json"), JSON.pretty_generate(result))
+  pct = ->(x) { x.nil? ? "n/a" : format("%.1f%%", x * 100) }
+  result.each do |name, r|
+    puts format("%-9s threshold %.2f  agreement %-6s coverage %-6s worst-bin gap %.3f  mean gap %.3f  ties %d/%d",
+                name, r["threshold"], pct.(r["agreement"]), pct.(r["coverage"]), r["calibration_gap"],
+                r["mean_calibration_gap"], r["ties_caught"], r["ties"])
+  end
 when "spend"
   Budget.totals.each { |(run, kind), t| puts format("%-10s %-9s %5d calls  $%.4f", run, kind, t[:calls], t[:cost_usd]) }
 else
@@ -95,6 +107,7 @@ else
                                          Claude reviews confident disagreements
     bin/jd spotcheck list                reviews waiting for Mike's check
     bin/jd spotcheck add ID --verdict agree|override [--label L] --note TEXT
+    bin/jd calibrate --run NAME          fit calibration maps on dev, compare on holdout (free)
     bin/jd spend                         spend so far by run
   HELP
 end
