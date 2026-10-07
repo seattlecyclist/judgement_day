@@ -85,8 +85,10 @@ module JudgementDay
 
     # A stable, well-mixed sample: items ordered by hash, so the first 20 of
     # a smoke run are spread across questions and models.
-    def sample(items, limit)
-      shuffled = items.sort_by { |i| JudgementDay.unit_hash("sample:" + i["id"]) }
+    # `offset` skips items an earlier run already used, so a later run gets
+    # fresh ones (the full run took the first 500).
+    def sample(items, limit, offset: 0)
+      shuffled = items.sort_by { |i| JudgementDay.unit_hash("sample:" + i["id"]) }.drop(offset)
       limit ? shuffled.first(limit) : shuffled
     end
 

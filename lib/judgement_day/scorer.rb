@@ -5,7 +5,9 @@ module JudgementDay
     PRESETS = {
       "smoke1" => { limit: 20, orders: 1, repeats: 1, cap: 1.0 },
       "smoke2" => { limit: 50, orders: 2, repeats: 1, cap: 1.0 },
-      "full" => { limit: 500, orders: 2, repeats: 3, cap: 5.0 }
+      "full" => { limit: 500, orders: 2, repeats: 3, cap: 5.0 },
+      # Every item the full run didn't use, scored once to test the locked setup.
+      "confirm" => { offset: 500, limit: nil, orders: 2, repeats: 3, cap: 5.0 }
     }.freeze
 
     def initialize(client:, budget:, cache_dir: JudgementDay.path("data", "cache", "judge"), log: $stdout)

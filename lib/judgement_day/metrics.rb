@@ -42,15 +42,18 @@ module JudgementDay
 
     # One summary per item: averaged probabilities, the judge's pick, its
     # confidence (the winning probability), and order and repeat stability.
-    def per_item(items, rows)
+    # `transform` maps a probability triple (e.g. a locked calibration) and is
+    # applied to the item mean, each order's mean and each single response.
+    def per_item(items, rows, transform: nil)
+      tp = ->(p) { transform ? transform.call(p) : p }
       by_item = rows.group_by { |r| r["item_id"] }
       items.filter_map do |item|
         rs = by_item[item["id"]]
         next if rs.nil? || rs.empty?
-        p = mean_p(rs)
+        p = tp.(mean_p(rs))
         by_order = rs.group_by { |r| r["order"] }
-        order_picks = by_order.transform_values { |o| argmax(mean_p(o)) }
-        flipped = by_order.values.any? { |o| o.map { |r| argmax(r["p"]) }.uniq.size > 1 }
+        order_picks = by_order.transform_values { |o| argmax(tp.(mean_p(o))) }
+        flipped = by_order.values.any? { |o| o.map { |r| argmax(tp.(r["p"])) }.uniq.size > 1 }
         maj = majority(item["votes"])
         {
           "item" => item, "p" => p, "pick" => argmax(p), "confidence" => p.values.max,

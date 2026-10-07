@@ -11,6 +11,7 @@ def options(args, defaults = {})
     o.on("--run NAME") { |v| opts[:run] = v }
     o.on("--preset NAME", Scorer::PRESETS.keys) { |v| opts.merge!(Scorer::PRESETS.fetch(v)); opts[:run] ||= v }
     o.on("--limit N", Integer) { |v| opts[:limit] = v }
+    o.on("--offset N", Integer) { |v| opts[:offset] = v }
     o.on("--orders N", Integer, [1, 2]) { |v| opts[:orders] = v }
     o.on("--repeats N", Integer) { |v| opts[:repeats] = v }
     o.on("--cap USD", Float) { |v| opts[:cap] = v }
@@ -42,7 +43,7 @@ when "score"
   opts = options(ARGV, orders: 2, repeats: 1)
   require_run!(opts)
   abort "--cap USD is required" unless opts[:cap]
-  items = Dataset.sample(Dataset.load_items, opts[:limit])
+  items = Dataset.sample(Dataset.load_items, opts[:limit], offset: opts[:offset] || 0)
   budget = Budget.new(cap: opts[:cap], run: opts[:run])
   scorer = Scorer.new(client: Judge::Client.new(api_key: Secrets.fetch(:judge)), budget: budget)
   rows = scorer.score(items, orders: opts[:orders], repeats: opts[:repeats])
@@ -81,6 +82,19 @@ when "spotcheck"
   else
     abort "Usage: bin/jd spotcheck list | add REVIEW_ID ..."
   end
+when "confirm"
+  opts = options(ARGV, run: "confirm")
+  rows = JudgementDay.read_jsonl(Report.scores_path(opts[:run]))
+  abort "No scores for #{opts[:run]}: run `bin/jd score --preset confirm` first" if rows.empty?
+  used = JudgementDay.read_jsonl(Report.scores_path("full")).map { |r| r["item_id"] }.to_set
+  overlap = rows.map { |r| r["item_id"] }.to_set & used
+  abort "#{overlap.size} confirmation items were already in the full run" unless overlap.empty?
+  result, = Locked.evaluate(Dataset.load_items, rows)
+  File.write(File.join(Report.run_dir(opts[:run]), "locked_report.json"), JSON.pretty_generate(result))
+  puts "Locked setup #{Locked::VERSION} on #{result['items_scored']} fresh items (#{result['items_with_majority']} with a majority)"
+  Report.print_summary(result.merge("run" => opts[:run], "threshold_calibrated" => true, "confident_disagreements" =>
+    result.dig("all", "decided") - (result.dig("all", "agreement").to_f * result.dig("all", "decided")).round))
+  puts "  ties caught: #{result['ties_caught']}/#{result['ties']}"
 when "calibrate"
   opts = options(ARGV)
   require_run!(opts)
@@ -101,6 +115,8 @@ else
     bin/jd score --preset smoke1         20 items, one order (cap $1)
     bin/jd score --preset smoke2         50 items, both orders (cap $1)
     bin/jd score --preset full           500 items, both orders, 3 repeats (cap $5)
+    bin/jd score --preset confirm        the other 461 items, same settings (cap $5)
+    bin/jd confirm                       every bar for the locked setup on the confirm run (free)
     bin/jd score --run NAME --limit N --orders 1|2 --repeats N --cap USD
     bin/jd report --run NAME             recompute metrics from cached scores (free)
     bin/jd review --run NAME [--cap 10] [--model ID --effort LEVEL]
