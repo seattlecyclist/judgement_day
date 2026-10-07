@@ -9,7 +9,12 @@ def options(args, defaults = {})
   opts = defaults.dup
   OptionParser.new do |o|
     o.on("--run NAME") { |v| opts[:run] = v }
-    o.on("--preset NAME", Scorer::PRESETS.keys) { |v| opts.merge!(Scorer::PRESETS.fetch(v)); opts[:run] ||= v }
+    o.on("--preset NAME", Scorer::PRESETS.keys + MultiPref::PRESETS.keys) do |v|
+      opts.merge!(Scorer::PRESETS[v] || MultiPref::PRESETS.fetch(v).merge(dataset: "multipref"))
+      opts[:run] ||= v
+      opts[:preset] = v
+    end
+    o.on("--dataset NAME", %w[mt-bench multipref]) { |v| opts[:dataset] = v }
     o.on("--limit N", Integer) { |v| opts[:limit] = v }
     o.on("--offset N", Integer) { |v| opts[:offset] = v }
     o.on("--workers N", Integer) { |v| opts[:workers] = v }
@@ -34,6 +39,17 @@ command = ARGV.shift
 case command
 when "fetch"
   opts = options(ARGV, min_votes: 2)
+  if opts[:dataset] == "multipref"
+    rows = MultiPref.fetch
+    items = MultiPref.build_items(rows)
+    JudgementDay.write_jsonl(MultiPref.items_path, items)
+    sampled = MultiPref.sample(items)
+    puts "Fetched #{rows.size} rows; #{items.size} items after dropping #{MultiPref::EXCLUDED_SOURCES.join(', ')}"
+    puts "Sample of #{sampled.size}: #{sampled.count { |i| MultiPref.dev?(i['id']) }} dev, #{sampled.count { |i| !MultiPref.dev?(i['id']) }} test"
+    puts "Sample majorities: #{sampled.map { |i| Metrics.majority(i['votes']) || 'none' }.tally.sort.to_h}"
+    puts "Sample by source: #{sampled.map { |i| i['source'] }.tally.sort.to_h}"
+    exit
+  end
   rows = Dataset.fetch
   items = Dataset.build_items(rows, min_votes: opts[:min_votes])
   JudgementDay.write_jsonl(Dataset.items_path, items)
@@ -44,7 +60,11 @@ when "score"
   opts = options(ARGV, orders: 2, repeats: 1)
   require_run!(opts)
   abort "--cap USD is required" unless opts[:cap]
-  items = Dataset.sample(Dataset.load_items, opts[:limit], offset: opts[:offset] || 0)
+  items = if opts[:dataset] == "multipref"
+            MultiPref.items_for(opts[:preset] || abort("MultiPref runs use --preset mp-smoke or mp-test"))
+          else
+            Dataset.sample(Dataset.load_items, opts[:limit], offset: opts[:offset] || 0)
+          end
   budget = Budget.new(cap: opts[:cap], run: opts[:run])
   scorer = Scorer.new(client: Judge::Client.new(api_key: Secrets.fetch(:judge)), budget: budget,
                       workers: opts[:workers] || Scorer::WORKERS)
@@ -55,7 +75,7 @@ when "score"
 when "report"
   opts = options(ARGV)
   require_run!(opts)
-  result, = Report.write(opts[:run], Dataset.load_items)
+  result, = Report.write(opts[:run], opts[:run].start_with?("mp-") ? MultiPref.load_items : Dataset.load_items)
   Report.print_summary(result)
 when "review"
   opts = options(ARGV, cap: 10.0)
@@ -97,6 +117,19 @@ when "confirm"
   Report.print_summary(result.merge("run" => opts[:run], "threshold_calibrated" => true, "confident_disagreements" =>
     result.dig("all", "decided") - (result.dig("all", "agreement").to_f * result.dig("all", "decided")).round))
   puts "  ties caught: #{result['ties_caught']}/#{result['ties']}"
+when "prereg"
+  opts = options(ARGV, run: "mp-test")
+  rows = JudgementDay.read_jsonl(Report.scores_path(opts[:run]))
+  abort "No scores for #{opts[:run]}: run `bin/jd score --preset mp-test` first" if rows.empty?
+  result, = MultiPref.evaluate(MultiPref.load_items, rows)
+  File.write(File.join(Report.run_dir(opts[:run]), "prereg_report.json"), JSON.pretty_generate(result))
+  puts "Preregistered test on #{result['test_items']} test items (#{result['test_items_with_majority']} with a majority); map fitted on #{result['dev_items']} dev items"
+  Report.print_summary(result.merge("run" => opts[:run], "items_scored" => result["test_items"],
+                                    "items_with_majority" => result["test_items_with_majority"], "threshold_calibrated" => true,
+                                    "confident_disagreements" => result.dig("all", "decided").to_i - (result.dig("all", "agreement").to_f * result.dig("all", "decided").to_i).round))
+  puts "  agreement 95% CI: #{result['agreement_95ci'].inspect}   ties caught: #{result['ties_caught']}/#{result['ties']}"
+  puts "  worst bin #{result.dig('calibration', 'max_gap')}  raw average gap #{result.dig('raw_calibration', 'mean_gap')}"
+  puts "  vs experts #{result['agreement_vs_experts']&.round(3)}  vs workers #{result['agreement_vs_workers']&.round(3)}  3-of-4 subset #{result.dig('three_of_four', 'agreement')&.round(3)}"
 when "calibrate"
   opts = options(ARGV)
   require_run!(opts)
@@ -125,6 +158,10 @@ else
                                          Claude reviews confident disagreements
     bin/jd spotcheck list                reviews waiting for Mike's check
     bin/jd spotcheck add ID --verdict agree|override [--label L] --note TEXT
+    bin/jd fetch --dataset multipref     download MultiPref and build items (preregistered)
+    bin/jd score --preset mp-smoke       50 MultiPref dev items, both orders (cap $1)
+    bin/jd score --preset mp-test        2,000 MultiPref items, both orders, 3 repeats (cap $5)
+    bin/jd prereg                        the preregistered MultiPref analysis on mp-test (free)
     bin/jd calibrate --run NAME          fit calibration maps on dev, compare on holdout (free)
     bin/jd spend                         spend so far by run
   HELP
