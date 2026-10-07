@@ -1,0 +1,96 @@
+#!/usr/bin/env ruby
+# Pilot CLI. Run `bin/jd help` for commands.
+require_relative "../lib/judgement_day"
+require "optparse"
+
+include JudgementDay
+
+def options(args, defaults = {})
+  opts = defaults.dup
+  OptionParser.new do |o|
+    o.on("--run NAME") { |v| opts[:run] = v }
+    o.on("--preset NAME", Scorer::PRESETS.keys) { |v| opts.merge!(Scorer::PRESETS.fetch(v)); opts[:run] ||= v }
+    o.on("--limit N", Integer) { |v| opts[:limit] = v }
+    o.on("--orders N", Integer, [1, 2]) { |v| opts[:orders] = v }
+    o.on("--repeats N", Integer) { |v| opts[:repeats] = v }
+    o.on("--cap USD", Float) { |v| opts[:cap] = v }
+    o.on("--min-votes N", Integer) { |v| opts[:min_votes] = v }
+    o.on("--verdict V") { |v| opts[:verdict] = v }
+    o.on("--label L") { |v| opts[:label] = v }
+    o.on("--note TEXT") { |v| opts[:note] = v }
+  end.parse!(args)
+  opts
+end
+
+def require_run!(opts)
+  abort "--run NAME (or --preset) is required" unless opts[:run]
+end
+
+command = ARGV.shift
+case command
+when "fetch"
+  opts = options(ARGV, min_votes: 2)
+  rows = Dataset.fetch
+  items = Dataset.build_items(rows, min_votes: opts[:min_votes])
+  JudgementDay.write_jsonl(Dataset.items_path, items)
+  puts "Fetched #{rows.size} votes; #{items.size} items have #{opts[:min_votes]}+ votes"
+  puts "Votes per item: #{items.map { |i| i['votes'].values.sum }.tally.sort.to_h}"
+  puts "By category: #{items.map { |i| i['category'] }.tally.sort.to_h}"
+when "score"
+  opts = options(ARGV, orders: 2, repeats: 1)
+  require_run!(opts)
+  abort "--cap USD is required" unless opts[:cap]
+  items = Dataset.sample(Dataset.load_items, opts[:limit])
+  budget = Budget.new(cap: opts[:cap], run: opts[:run])
+  scorer = Scorer.new(client: Judge::Client.new(api_key: Secrets.fetch(:judge)), budget: budget)
+  rows = scorer.score(items, orders: opts[:orders], repeats: opts[:repeats])
+  JudgementDay.write_jsonl(Report.scores_path(opts[:run]), rows)
+  result, = Report.write(opts[:run], items)
+  Report.print_summary(result)
+when "report"
+  opts = options(ARGV)
+  require_run!(opts)
+  result, = Report.write(opts[:run], Dataset.load_items)
+  Report.print_summary(result)
+when "review"
+  opts = options(ARGV, cap: 10.0)
+  require_run!(opts)
+  require "anthropic"
+  result, summaries = Report.write(opts[:run], Dataset.load_items)
+  client = Anthropic::Client.new(api_key: Secrets.fetch(:reviewer))
+  Reviewer.review(run: opts[:run], summaries: summaries, threshold: result["threshold"], client: client,
+                  budget: Budget.new(cap: opts[:cap], run: opts[:run]), limit: opts[:limit])
+when "spotcheck"
+  sub = ARGV.shift
+  if sub == "list"
+    pending = Reviewer.pending_spotchecks
+    puts "#{pending.size} reviews waiting for your check"
+    pending.each do |r|
+      puts "\n#{r['review_id']}  #{r['item_id']}  (#{r['category']})"
+      puts "  humans: #{r['human_votes']}  majority #{r['human_majority']}  judge #{r.dig('judge', 'pick')} #{r.dig('judge', 'p')}"
+      puts "  Claude: #{r['label'] || 'no label'} - #{r['reason']}"
+    end
+  elsif sub == "add"
+    id = ARGV.shift or abort "Usage: bin/jd spotcheck add REVIEW_ID --verdict agree|override [--label L] --note TEXT"
+    opts = options(ARGV)
+    Reviewer.add_spotcheck(review_id: id, verdict: opts[:verdict].to_s, label: opts[:label], note: opts[:note].to_s)
+    puts "Recorded."
+  else
+    abort "Usage: bin/jd spotcheck list | add REVIEW_ID ..."
+  end
+when "spend"
+  Budget.totals.each { |(run, kind), t| puts format("%-10s %-9s %5d calls  $%.4f", run, kind, t[:calls], t[:cost_usd]) }
+else
+  puts <<~HELP
+    bin/jd fetch                         download MT-Bench human judgments and build items
+    bin/jd score --preset smoke1         20 items, one order (cap $1)
+    bin/jd score --preset smoke2         50 items, both orders (cap $1)
+    bin/jd score --preset full           500 items, both orders, 3 repeats (cap $5)
+    bin/jd score --run NAME --limit N --orders 1|2 --repeats N --cap USD
+    bin/jd report --run NAME             recompute metrics from cached scores (free)
+    bin/jd review --run NAME [--cap 10]  Claude reviews confident disagreements
+    bin/jd spotcheck list                reviews waiting for Mike's check
+    bin/jd spotcheck add ID --verdict agree|override [--label L] --note TEXT
+    bin/jd spend                         spend so far by run
+  HELP
+end

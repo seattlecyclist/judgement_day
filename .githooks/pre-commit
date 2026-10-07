@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ruby "$(git rev-parse --show-toplevel)/bin/check-secrets"

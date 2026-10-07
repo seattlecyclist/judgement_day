@@ -1,0 +1,6 @@
+/data/raw/
+/data/cache/
+/data/spend.jsonl
+.env
+*.key
+.DS_Store

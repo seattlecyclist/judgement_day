@@ -1,0 +1,36 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    anthropic (1.77.0)
+      base64 (~> 0.1)
+      connection_pool (>= 2, < 4)
+      standardwebhooks (~> 1.0)
+    base64 (0.3.0)
+    connection_pool (3.0.2)
+    minitest (5.27.0)
+    rake (13.4.2)
+    standardwebhooks (1.1.0)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  anthropic (~> 1.77)
+  minitest (~> 5.20)
+  rake
+
+CHECKSUMS
+  anthropic (1.77.0) sha256=031fe95e163c0d9701919bb23ebacfb54e3f2d5165292439cee4699cf686abc5
+  base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  bundler (4.0.18) sha256=02d9a17429de1847b4e0c9f27a9ee4b20c0a74c0a641b4e77195d6019e3618ac
+  connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
+  minitest (5.27.0) sha256=2d3b17f8a36fe7801c1adcffdbc38233b938eb0b4966e97a6739055a45fa77d5
+  rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
+  standardwebhooks (1.1.0) sha256=356ba711c14def4fb27310e4163b26bd5cccf325212c3440cabadd825e4be11f
+
+RUBY VERSION
+  ruby 3.3.6
+
+BUNDLED WITH
+  4.0.18
