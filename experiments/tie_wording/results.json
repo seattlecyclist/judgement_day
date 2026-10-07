@@ -1,0 +1,32 @@
+{
+  "baseline pairwise-helpful@v1": {
+    "items": 308,
+    "agreement_all": 0.76,
+    "coverage@0.90": 0.614,
+    "agreement@0.90": 0.905,
+    "ties_caught": "13/53",
+    "ties_called": 15,
+    "order_consistency": 0.919,
+    "avg_calibration_gap": 0.112
+  },
+  "pairwise-helpful@v2-tie-a": {
+    "items": 308,
+    "agreement_all": 0.766,
+    "coverage@0.90": 0.594,
+    "agreement@0.90": 0.902,
+    "ties_caught": "16/53",
+    "ties_called": 20,
+    "order_consistency": 0.925,
+    "avg_calibration_gap": 0.091
+  },
+  "pairwise-helpful@v2-tie-b": {
+    "items": 308,
+    "agreement_all": 0.769,
+    "coverage@0.90": 0.591,
+    "agreement@0.90": 0.907,
+    "ties_caught": "16/53",
+    "ties_called": 19,
+    "order_consistency": 0.906,
+    "avg_calibration_gap": 0.086
+  }
+}
