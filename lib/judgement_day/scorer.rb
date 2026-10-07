@@ -29,7 +29,7 @@ module JudgementDay
             response =
               if File.exist?(file)
                 cached += 1
-                JSON.parse(File.read(file))
+                JSON.parse(File.read(file, encoding: "UTF-8"))
               else
                 body = Judge.request_body(item, order)
                 @budget.check!(:judge, input_chars: JSON.generate(body).bytesize)

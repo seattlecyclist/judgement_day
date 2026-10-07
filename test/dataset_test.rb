@@ -19,4 +19,18 @@ class DatasetTest < Minitest::Test
     assert_equal "writing", JudgementDay::Dataset.category(81)
     assert_equal "humanities", JudgementDay::Dataset.category(160)
   end
+
+  def test_read_jsonl_is_utf8_regardless_of_locale
+    Dir.mktmpdir do |dir|
+      file = File.join(dir, "rows.jsonl")
+      JudgementDay.write_jsonl(file, [{ "text" => "it’s café" }])
+      previous = Encoding.default_external
+      begin
+        Encoding.default_external = Encoding::US_ASCII
+        assert_equal "it’s café", JudgementDay.read_jsonl(file).first["text"]
+      ensure
+        Encoding.default_external = previous
+      end
+    end
+  end
 end

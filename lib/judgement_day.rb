@@ -32,7 +32,7 @@ module JudgementDay
 
   def self.read_jsonl(file)
     return [] unless File.exist?(file)
-    File.readlines(file, chomp: true).reject(&:empty?).map { |l| JSON.parse(l) }
+    File.readlines(file, chomp: true, encoding: "UTF-8").reject(&:empty?).map { |l| JSON.parse(l) }
   end
 
   def self.append_jsonl(file, row)
